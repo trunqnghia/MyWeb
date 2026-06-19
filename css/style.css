@@ -192,13 +192,13 @@ font-size: 32px;            /* Đủ lớn để phân biệt với nội 
 }
 
 /* Các đoạn văn trong phần About */
-.about-section {
-  background-color: var(--section-bg);
-  padding: 60px;                /* Padding lớn tạo cảm giác cao cấp */
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ lan tỏa rộng */
-  margin-bottom: 60px;
+.about-section p {
+font-size: 16px;            /* Giữ nguyên kích thước tiêu chuẩn dễ đọc */
+  font-weight: 400;           /* Chữ mảnh vừa phải */
+  line-height: 1.8;           /* Tăng nhẹ giãn dòng ở các đoạn văn dài để tăng trải nghiệm đọc */
+  color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: justify;        /* Căn đều 2 bên giúp các khối văn bản dài trông gọn gàng, vuông vức */
 }
 
 /* Danh sách đặc điểm nổi bật */
@@ -235,15 +235,12 @@ font-size: 32px;            /* Đủ lớn để phân biệt với nội 
 
 /* Định dạng khối trích dẫn blockquote - ĐỂ RA NGOÀI ĐỘC LẬP */
 blockquote {
-  background-color: rgba(217, 119, 6, 0.05); /* Nền màu cam nhạt tinh tế */
-  padding: 40px;
-  border-radius: 8px;
-  border-left: 4px solid var(--accent-color);
-  border-top: none;             /* Loại bỏ viền dashed cũ để trông hiện đại hơn */
-  border-bottom: none;
-  margin: 40px auto;
-  position: relative;
-}   /* Căn giữa dòng để tôn vinh câu trích dẫn */
+  font-size: 20px;            /* Cỡ chữ lớn hơn đoạn văn thông thường để gây chú ý */
+  font-weight: 600;           /* Độ dày Semi Bold tạo sự nhấn mạnh */
+  line-height: 1.5;
+  font-style: italic;         /* In nghiêng tạo cảm giác nghệ thuật, suy tư */
+  color: var(--accent-color); /* Sử dụng màu cam cháy rực rỡ */
+  text-align: center;         /* Căn giữa dòng để tôn vinh câu trích dẫn */
   
   /* Tạo không gian xung quanh phần trích dẫn */
   margin: 40px auto;
@@ -316,17 +313,18 @@ blockquote::before {
 
 /* 4. ĐỊNH DẠNG IMAGE CARD (Thẻ hình ảnh ở Hero) */
 .image-card {
-  background-color: var(--section-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;           /* Bo góc nhẹ nhàng */
-  overflow: hidden;             /* Đảm bảo ảnh không tràn ra ngoài */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ tạo chiều sâu */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px; /* Bo góc mượt mà */
+  overflow: hidden;    /* Đảm bảo ảnh không đè lên góc bo */
+  box-shadow: 0 4px 15px rgba(45, 22, 6, 0.08); /* Đổ bóng tone nâu ấm nhẹ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
 }
 
 .image-card:hover {
-  transform: translateY(-5px);  /* Hiệu ứng nổi khi di chuột */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px); /* Hiệu ứng nhấc card lên khi di chuột */
+  box-shadow: 0 12px 25px rgba(45, 22, 6, 0.15); /* Bóng đổ sâu hơn */
 }
 
 .responsive-img {
@@ -354,20 +352,23 @@ blockquote::before {
 }
 
 .feature-card {
-  background-color: #FFFFFF;    /* Nền trắng giúp khối tách biệt với nền section */
-  padding: 30px;                /* Khoảng đệm bên trong */
-  margin-bottom: 20px;          /* Khoảng cách giữa các card khi xếp chồng */
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-color); /* Điểm nhấn viền trái */
-  border-radius: 8px;           /* Bo góc đồng bộ */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--bg-color); /* Màu nền tương phản nhẹ với nền trắng của About */
+  padding: 30px 25px;                 /* Padding rộng rãi tạo "khoảng thở" cho chữ */
+  border-radius: 8px;                 /* Bo góc đồng bộ */
+  border-left: 4px solid var(--accent-color); /* Vạch màu cam nhấn điểm thương hiệu bên trái */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  border-left-width: 8px;       /* Tăng độ dày viền khi tương tác */
+  background-color: var(--section-bg);
+  border-left-width: 8px; /* Tăng độ dày vạch cam khi hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
+
 .feature-icon {
   color: var(--accent-color);
   font-size: 18px;
