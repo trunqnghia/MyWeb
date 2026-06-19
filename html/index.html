@@ -1,66 +1,57 @@
 <!DOCTYPE html>
-
 <html lang="vi">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>MyWeb - Cà phê & Chữa lành</title>
-
   <link rel="stylesheet" href="../css/style.css">
-
 </head>
-
 <body>
-
 <header class="site-header" id="top">
-
   <div class="brand">Ngoại Hạng Cafe</div>
-
   <nav class="main-nav" aria-label="Điều hướng chính">
-
     <a href="#hero">Trang chủ</a>
-
     <a href="#about">Giới thiệu</a>
-
-    <a href="#gallery">Thư viện</a>
-
-    <a href="#contact">Liên hệ</a>
-
+    <a href="#features">Tiện ích</a>
+    <a href="#style-guide">Bảng màu</a>
   </nav>
-
 </header>
-
-
 
 <main>
   <section class="hero" id="hero">
-    <p class="eyebrow">Hành trình săn tìm những góc quán trốn deadline</p>
-    <h1 id="main-title">Cà Phê, Sách & Những Ý Tưởng Mới</h1>
-    <p class="intro">Chào mừng bạn đến với không gian chia sẻ những quán cà phê "ruột" của mình. Nơi có hương espresso đậm đà, những góc bàn ngập nắng và list nhạc lofi cực chill giúp bạn x5 hiệu suất làm việc.</p>
+    <div class="hero-content">
+      <p class="eyebrow">Hành trình săn tìm những góc quán trốn deadline</p>
+      <h1 id="main-title">Cà Phê, Sách & Những Ý Tưởng Mới</h1>
+      <p class="intro lead">Chào mừng bạn đến với không gian chia sẻ những quán cà phê "ruột" của mình. Nơi có hương espresso đậm đà, những góc bàn ngập nắng và list nhạc lofi cực chill giúp bạn x5 hiệu suất làm việc.</p>
+      <a class="primary-button" href="#about">Khám phá chủ đề</a>
+    </div>
     
-    <div class="hero-images-container">
-      <div class="image-box">
+    <div class="hero-images-container card-row">
+      <div class="image-box image-card">
         <img src="../img/cafe1.jpg" alt="Hương vị Espresso nguyên bản" class="responsive-img">
-        <p class="img-caption">Hương vị Espresso nguyên bản</p>
+        <p class="img-caption card-caption">Hương vị Espresso nguyên bản</p>
       </div>
-      <div class="image-box">
+      <div class="image-box image-card">
         <img src="../img/cafe2.jpg" alt="Góc làm việc ngập tràn cảm hứng" class="responsive-img">
-        <p class="img-caption">Góc làm việc ngập tràn cảm hứng</p>
+        <p class="img-caption card-caption">Góc làm việc ngập tràn cảm hứng</p>
       </div>
     </div>
-    <a class="primary-button" href="#about">Khám phá chủ đề</a>
   </section>
 
   <section class="section about-section" id="about">
-    <h2>Về "Ngoại Hạng Cafe"</h2>
-    <p>Mình bắt đầu hành trình "coffee hopping" này từ những ngày chạy deadline ngập đầu và nhận ra không gian xung quanh ảnh hưởng cực kỳ lớn đến khả năng sáng tạo. Trang web này ra đời để lưu giữ trải nghiệm về những quán cà phê có gu, yên tĩnh và bật nhạc đủ tinh tế cho những ai cần sự tập trung.</p>
-    <p>Đối tượng mà mình hướng tới là các bạn học sinh, sinh viên và freelancer – những người luôn đi tìm một chiếc bàn vừa tầm, một ổ cắm điện tiện lợi và một ly cold brew mát lạnh để kích hoạt bộ não làm việc hiệu quả.</p>
+    <div id="story">
+      <h2>Về "Ngoại Hạng Cafe"</h2>
+      <p>Mình bắt đầu hành trình "coffee hopping" này từ những ngày chạy deadline ngập đầu và nhận ra không gian xung quanh ảnh hưởng cực kỳ lớn đến khả năng sáng tạo. Trang web này ra đời để lưu giữ trải nghiệm về những quán cà phê có gu, yên tĩnh và bật nhạc đủ tinh tế cho những ai cần sự tập trung.</p>
+      <p>Đối tượng mà mình hướng tới là các bạn học sinh, sinh viên và freelancer – những người luôn đi tìm một chiếc bàn vừa tầm, một ổ cắm điện tiện lợi và một ly cold brew mát lạnh để kích hoạt bộ não làm việc hiệu quả.</p>
+    </div>
     
-    <div class="feature-cards-container">
+    <ul class="topic-list">
+      <li><strong>Không gian:</strong> Yên tĩnh, ngập nắng và âm nhạc nhẹ nhàng.</li>
+      <li><strong>Trải nghiệm:</strong> Review chân thực chất lượng đồ uống và phục vụ.</li>
+      <li><strong>Tiện ích:</strong> Wi-Fi tốc độ cao và nhiều ổ cắm điện tiện lợi.</li>
+    </ul>
+
+    <div id="features" class="feature-cards-container">
       <div class="feature-card">
         <div class="feature-icon">■</div>
         <h3>Không gian yên tĩnh</h3>
@@ -78,12 +69,19 @@
       </div>
     </div>
 
+    <div id="style-guide">
+      <h3>Bảng màu thiết kế thương hiệu</h3>
+      <div class="swatches">
+        <div class="swatch" style="background-color: var(--primary-color);">Espresso</div>
+        <div class="swatch" style="background-color: var(--accent-color);">Crema</div>
+        <div class="swatch" style="background-color: var(--bg-color); color: #000;">Nền</div>
+      </div>
+    </div>
+
     <blockquote>
       Không gian tốt không chỉ là nơi ngồi che mưa che nắng, đó là nơi nuôi dưỡng những ý tưởng thay đổi cuộc đời bạn.
     </blockquote>
   </section>
 </main>
-
 </body>
-
 </html>
