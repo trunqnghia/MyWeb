@@ -1,110 +1,62 @@
-/* Chặng 1: liên kết CSS ngoài và selector cơ bản */
-* {
-  box-sizing: border-box;
+/* 1. Thiết lập biến màu sắc (CSS Variables) để dễ quản lý */
+:root {
+  --primary-color: #78350f;      /* Nâu đậm hạt cafe */
+  --accent-color: #b45309;       /* Nâu hổ phách làm điểm nhấn */
+  --bg-color: #faf9f6;           /* Trắng kem ấm áp */
+  --text-color: #44403c;         /* Màu chữ xám đen (không dùng đen tuyền để tránh mỏi mắt) */
+  --cta-color: #1e3a8a;          /* Xanh denim tập trung cho nút bấm */
+  --cta-hover-color: #1d4ed8;    /* Xanh sáng hơn một chút khi hover */
 }
 
+/* 2. Áp dụng vào cấu trúc trang */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #4b5563; /* Màu chữ chính (xám đậm phong cách tối giản) */
-  background-color: #fafaf9; /* Màu nền trắng kem ấm áp hợp vibe cafe */
-}
-
-h1, h2, h3, p {
-  margin-top: 0;
-}
-
-a {
-  color: #b45309; /* Màu nâu hổ phách làm màu nhấn chủ đạo */
-}
-
-/* Chặng 2: class, id, selector kết hợp và cascade */
-.site-header {
-  padding: 18px 8%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e7e5e4;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .brand {
+  color: var(--primary-color);
   font-weight: 800;
   font-size: 24px;
-  color: #78350f; /* Màu nâu đậm cho thương hiệu */
 }
 
-/* Selector kết hợp: Chỉ định dạng thẻ 'a' nằm bên trong class '.main-nav' */
-.main-nav a {
-  margin-right: 24px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #57534e;
-}
-
-/* Selector kết hợp có hiệu ứng hover */
-.main-nav a:hover {
-  color: #b45309;
-}
-
-/* Sử dụng ID Selector */
-#main-title {
-  color: #78350f; 
-  font-size: 42px;
-  margin-bottom: 20px;
-}
-
-/* Định dạng phần Hero */
-.hero {
-  padding: 80px 8%;
-  background-color: #f5f5f4;
-  margin-bottom: 40px;
+#main-title, .about-section h2 {
+  color: var(--primary-color);
 }
 
 .eyebrow {
-  text-transform: uppercase;
-  font-size: 14px;
+  color: var(--accent-color);
+}
+
+.main-nav a {
+  color: var(--text-color);
+  text-decoration: none;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: #b45309;
 }
 
-/* Định dạng phần Section About vừa thêm mới */
-.section {
-  padding: 60px 8%;
+/* Hover link chuyển sang màu nhấn */
+.main-nav a:hover {
+  color: var(--accent-color);
 }
 
-/* Class Selector kết hợp */
-.about-section {
-  background-color: #ffffff;
-  border-radius: 8px;
-  max-width: 900px;
-  margin: 0 auto 40px auto; /* Căn giữa block phần giới thiệu */
+/* 3. Định dạng Nút Kêu Gọi Hành Động (Primary Button) */
+.primary-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--cta-color);
+  color: #ffffff !important; /* Ép buộc chữ luôn màu trắng */
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; /* Tạo hiệu ứng mượt mà */
 }
 
-/* Selector theo thẻ h2 nằm trong khu vực giới thiệu */
-.about-section h2 {
-  font-size: 32px;
-  color: #78350f;
-  margin-bottom: 24px;
-  border-left: 5px solid #b45309; /* Thêm thanh sọc màu nâu bên trái tiêu đề */
-  padding-left: 15px;
-}
-
-/* Selector theo thẻ p để chỉnh giãn dòng cho dễ đọc */
-.about-section p {
-  line-height: 1.8;
-  font-size: 16px;
-  margin-bottom: 16px;
-}
-
-/* Sử dụng Class Selector cho danh sách */
-.topic-list {
-  margin-top: 30px;
-  padding-left: 20px;
-}
-
-/* Selector kết hợp: Định dạng riêng cho các thẻ li bên trong .topic-list */
-.topic-list li {
-  margin-bottom: 12px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #44403c;
+/* Trạng thái Hover của nút bấm */
+.primary-button:hover {
+  background-color: var(--cta-hover-color);
+  transform: translateY(-2px); /* Nút nhích nhẹ lên tạo hiệu ứng nổi */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
