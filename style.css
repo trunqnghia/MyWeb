@@ -1,0 +1,31 @@
+/* Selector cho toàn bộ thẻ body: định dạng nền và font chữ tổng thể */
+body {
+    background-color: #f4f4f9; /* Màu nền xám nhạt */
+    color: #333333;            /* Màu chữ xám đậm để dễ đọc */
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Selector cho thẻ tiêu đề h1 */
+h1 {
+    color: #2c3e50;            /* Màu xanh đen đậm */
+}
+
+/* Selector cho thẻ đoạn văn p */
+p {
+    font-size: 16px;
+}
+
+/* Selector cho thẻ liên kết a */
+a {
+    color: #3498db;            /* Màu xanh dương cho liên kết */
+    text-decoration: none;     /* Bỏ gạch chân mặc định */
+    font-weight: bold;
+}
+
+/* Selector khi di chuột qua liên kết (hover) */
+a:hover {
+    color: #2980b9;            /* Đổi sang màu xanh đậm hơn khi rê chuột vào */
+    text-decoration: underline;/* Xuất hiện gạch chân */
+}
