@@ -1,90 +1,47 @@
 /* ==========================================================================
-   TỔNG QUAN: CẤU TRÚC BOX-MODEL CHUẨN
+   CARD STYLES - KHÔI PHỤC THẨM MỸ GỐC
    ========================================================================== */
 
-* {
-  box-sizing: border-box; /* Quan trọng: Padding/Border không làm thay đổi kích thước thẻ */
-  margin: 0;
-  padding: 0;
-}
-
-/* 1. IMAGE CARD (Khối chứa ảnh ở Hero) */
+/* 1. IMAGE CARD - GIỮ NGUYÊN BẢN SẮC, TỐI ƯU HIỂN THỊ */
 .image-card {
-  background-color: var(--section-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px; 
-  overflow: hidden;    /* Giữ ảnh nằm gọn trong viền bo */
-  box-shadow: 0 4px 15px rgba(45, 22, 6, 0.08);
-  transition: all 0.3s ease;
-  flex: 1;
+    background-color: var(--section-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Tinh chỉnh lại độ bo góc cho thanh lịch */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Giữ độ mềm mại của bóng */
+    transition: transform 0.3s ease;
 }
 
 .image-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(45, 22, 6, 0.15);
+    transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ nhàng */
 }
 
-.responsive-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
-
-.card-caption {
-  padding: 15px; /* Tạo không gian thở bên trong thẻ */
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-align: center;
-}
-
-/* 2. FEATURE CARD (Thẻ tiện ích ở phần About) */
-.feature-cards-container {
-  display: flex;
-  gap: 25px; /* Khoảng cách giữa các card */
-  margin: 40px 0;
-  flex-wrap: wrap;
-}
-
+/* 2. FEATURE CARD - CÂN BẰNG TỶ LỆ VÀ KHOẢNG CÁCH */
 .feature-card {
-  flex: 1;
-  min-width: 250px;
-  background-color: #FAFAFA;
-  padding: 30px 25px; /* Padding rộng rãi giúp nội dung không bị sát viền */
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  border-left: 6px solid var(--accent-color); /* Điểm nhấn thương hiệu */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+    background-color: var(--section-bg);
+    padding: 30px; /* Duy trì khoảng thở rộng rãi */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Bóng đổ mờ, tinh tế */
+    transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-  background-color: #FFFFFF;
-  border-left-width: 12px; /* Tăng độ dày khi tương tác */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
+    border-color: var(--accent-color); /* Chỉ thay đổi viền để giữ sự sang trọng */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-.feature-card h3 {
-  font-size: 18px;
-  margin-bottom: 12px;
-  color: var(--primary-color);
-}
-
-.feature-card p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-/* 3. KHỐI CONTAINER CHÍNH (ABOUT SECTION) */
+/* 3. VỀ PHẦN ABOUT - GIỮ NGUYÊN CẤU TRÚC VUÔNG VỨC */
 .about-section {
-  background-color: var(--section-bg);
-  border-radius: 12px;
-  max-width: 950px;
-  margin: 40px auto;
-  padding: 60px; /* Padding lớn tạo sự trang trọng và thoáng đãng */
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background-color: var(--section-bg);
+    padding: 50px; 
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Đảm bảo box-sizing: border-box đã được reset ở đầu trang */
+}
+
+/* 4. ĐẢM BẢO TÍNH TOÀN VẸN CỦA BỐ CỤC */
+.hero, .section {
+    padding: 60px 8%; /* Giữ đúng tỷ lệ dàn trang của bạn */
 }
