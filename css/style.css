@@ -1,62 +1,218 @@
-/* 1. Thiết lập biến màu sắc (CSS Variables) để dễ quản lý */
+/* ==========================================================================
+   CHẶNG 1: THIẾT LẬP CƠ BẢN (RESET & VARIABLES)
+   ========================================================================== */
+
+/* Thiết lập bảng màu "Espresso Đậm Đặc" qua CSS Variables để dễ quản lý */
 :root {
-  --primary-color: #78350f;      /* Nâu đậm hạt cafe */
-  --accent-color: #b45309;       /* Nâu hổ phách làm điểm nhấn */
-  --bg-color: #faf9f6;           /* Trắng kem ấm áp */
-  --text-color: #44403c;         /* Màu chữ xám đen (không dùng đen tuyền để tránh mỏi mắt) */
-  --cta-color: #1e3a8a;          /* Xanh denim tập trung cho nút bấm */
-  --cta-hover-color: #1d4ed8;    /* Xanh sáng hơn một chút khi hover */
+  --primary-color: #2D1606;      /* Nâu đen Espresso rang cháy - Dùng cho tiêu đề, thương hiệu */
+  --accent-color: #D97706;       /* Cam cháy Crema rực rỡ - Dùng làm điểm nhấn, vạch kẻ, hover */
+  --bg-color: #F3EFEA;           /* Nền mộc bê tông/vải thô - Giúp dịu mắt và tôn màu chữ */
+  --section-bg: #FFFFFF;         /* Nền trắng tinh cho các khối nội dung nổi bật */
+  --hero-bg: #E5DFD8;            /* Nền tối hơn một chút cho khu vực Hero */
+  --text-color: #374151;         /* Màu chữ xám than đậm - Sắc nét nhưng không bị gắt như đen tuyền */
+  --cta-color: #DC2626;          /* Đỏ ớt tương phản cực cao - Dùng cho nút kêu gọi hành động */
+  --cta-hover-color: #B91C1C;    /* Đỏ trầm hơn khi di chuột vào nút */
+  --border-color: #E7E5E4;       /* Đường viền xám nhẹ */
 }
 
-/* 2. Áp dụng vào cấu trúc trang */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Đổi font hiện đại và dễ đọc hơn */
   color: var(--text-color);
   background-color: var(--bg-color);
+  line-height: 1.6;
 }
 
-.brand {
-  color: var(--primary-color);
-  font-weight: 800;
-  font-size: 24px;
+h1, h2, h3, p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-#main-title, .about-section h2 {
-  color: var(--primary-color);
-}
-
-.eyebrow {
+a {
   color: var(--accent-color);
-}
-
-.main-nav a {
-  color: var(--text-color);
   text-decoration: none;
-  font-weight: 700;
+  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
 }
 
-/* Hover link chuyển sang màu nhấn */
+
+/* ==========================================================================
+   CHẶNG 2: ĐỊNH DẠNG HEADER & NAVIGATION (THANH ĐIỀU HƯỚNG)
+   ========================================================================== */
+
+.site-header {
+  padding: 20px 8%;
+  background-color: var(--section-bg);
+  border-bottom: 2px solid var(--primary-color); /* Đường viền dưới dày màu nâu đen tạo sự cứng cáp */
+  display: block; /* Đảm bảo hiển thị block ổn định */
+}
+
+/* Định dạng tên thương hiệu góc trái */
+.brand {
+  font-weight: 900; /* Độ dày chữ tối đa để tăng độ "nặng đô" */
+  font-size: 26px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px; /* Tạo khoảng cách nhẹ nếu màn hình nhỏ bị nhảy dòng */
+}
+
+/* Định dạng các liên kết menu */
+.main-nav a {
+  margin-right: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Hiệu ứng di chuột cho menu: Đổi sang màu cam cháy */
 .main-nav a:hover {
   color: var(--accent-color);
 }
 
-/* 3. Định dạng Nút Kêu Gọi Hành Động (Primary Button) */
+
+/* ==========================================================================
+   CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO (ĐẦU TRANG)
+   ========================================================================== */
+
+.hero {
+  padding: 90px 8%;
+  background-color: var(--hero-bg);
+  border-left: 10px solid var(--primary-color); /* Thanh dọc màu nâu siêu dày bên cạnh trái */
+  margin-bottom: 50px;
+}
+
+/* Dòng chữ nhỏ định hướng phía trên tiêu đề chính */
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--accent-color); /* Màu cam rực rỡ */
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+/* Tiêu đề lớn h1 cực kỳ nổi bật */
+#main-title {
+  color: var(--primary-color); 
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+/* Đoạn văn giới thiệu ngắn */
+.intro {
+  font-size: 18px;
+  max-width: 700px;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+
+/* ==========================================================================
+   CHẶNG 4: NÚT KÊU GỌI HÀNH ĐỘNG (PRIMARY BUTTON)
+   ========================================================================== */
+
 .primary-button {
   display: inline-block;
-  padding: 12px 28px;
-  background-color: var(--cta-color);
-  color: #ffffff !important; /* Ép buộc chữ luôn màu trắng */
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease; /* Tạo hiệu ứng mượt mà */
+  padding: 14px 32px;
+  background-color: var(--cta-color); /* Màu đỏ giật gân đập ngay vào mắt */
+  color: #FFFFFF !important; /* Bắt buộc chữ luôn màu trắng */
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2); /* Tạo bóng đổ màu đỏ nhẹ */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Hiệu ứng chuyển động cao cấp */
 }
 
 /* Trạng thái Hover của nút bấm */
 .primary-button:hover {
   background-color: var(--cta-hover-color);
-  transform: translateY(-2px); /* Nút nhích nhẹ lên tạo hiệu ứng nổi */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px); /* Nút nhích nhẹ lên trên tạo độ nổi */
+  box-shadow: 0 10px 20px rgba(185, 28, 28, 0.4); /* Bóng đổ đậm và rộng hơn */
+}
+
+/* Trạng thái bấm xuống của nút (Active) */
+.primary-button:active {
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================================================
+   CHẶNG 5: ĐỊNH DẠNG KHU VỰC GIỚI THIỆU (ABOUT SECTION)
+   ========================================================================== */
+
+/* Khung bọc bao quanh toàn bộ phần About */
+.section {
+  padding: 60px 8%;
+}
+
+.about-section {
+  background-color: var(--section-bg);
+  border-radius: 8px;
+  max-width: 950px;
+  margin: 0 auto 60px auto; /* Căn giữa block */
+  padding: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Tạo bóng đổ nhẹ cho khối nội dung */
+  border: 1px solid var(--border-color);
+}
+
+/* Tiêu đề H2 của phần giới thiệu */
+.about-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  border-left: 6px solid var(--accent-color); /* Vạch đứng màu cam cháy gắt */
+  padding-left: 18px;
+}
+
+/* Các đoạn văn trong phần About */
+.about-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* Danh sách đặc điểm nổi bật */
+.topic-list {
+  margin-top: 35px;
+  padding-left: 0;
+  list-style: none; /* Tắt dấu chấm tròn mặc định của HTML */
+}
+
+/* Từng dòng trong danh sách */
+.topic-list li {
+  margin-bottom: 16px;
+  font-size: 16px;
+  position: relative;
+  padding-left: 25px; /* Nhường chỗ cho dấu gạch đầu dòng tự chế */
+  color: var(--text-color);
+}
+
+/* Tạo dấu gạch đầu dòng tùy biến màu cam cháy để tăng tính đồng bộ */
+.topic-list li::before {
+  content: "■"; /* Sử dụng hình ô vuông nhỏ màu cam */
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-size: 12px;
+  top: 2px;
+}
+
+/* Định dạng riêng cho chữ in đậm trong thẻ li */
+.topic-list li strong {
+  color: var(--primary-color);
+  font-weight: 700;
 }
