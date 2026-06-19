@@ -476,12 +476,57 @@ figcaption {
    SỬA LỖI REGEX: ĐỊNH DẠNG PORTFOLIO GRID CHUẨN XÁC
    ========================================================================== */
 
+/* ==========================================================================
+   TỐI ƯU PORTFOLIO: CHỐNG BẸT VÀ MỜ ẢNH 100%
+   ========================================================================== */
+
+/* Khung bọc lưới bắt buộc dàn 3 cột trên máy tính */
 .portfolio-grid {
-  display: grid;
-  
-  /* ÉP ĐÚNG CHUẨN: Viết liền không khoảng trắng bên trong dấu ngoặc tròn */
-  grid-template-columns: repeat(3, 1fr); 
-  
-  gap: 30px; 
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Ép chia làm 3 cột đều nhau */
+  gap: 30px !important;                             /* Khoảng cách giữa các ô ảnh */
   margin-top: 30px;
+  width: 100%;
+  max-width: 1200px;                                /* Giới hạn độ rộng khung để không bị giãn quá đà */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Định dạng từng ô chứa ảnh */
+.gallery-item {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* KHẮC PHỤC ẢNH MỜ: Ép tỉ lệ khung hình chuẩn */
+.gallery-item img.responsive-img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important; /* Ép ảnh luôn nằm trong tỉ lệ 4:3 vàng, không bao giờ bị bẹt */
+  object-fit: cover !important;   /* Giữ nguyên độ sắc nét, tự cắt gọn theo khung */
+  display: block;
+}
+
+/* Định dạng phần chữ dưới ảnh cho gọn gàng */
+figcaption {
+  padding: 15px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #2D1606; /* Màu nền tối cho tiệp màu web của bạn */
+  color: #FFA500;            /* Màu chữ nổi bật */
+}
+
+/* ==========================================================================
+   HỖ TRỢ TRÊN ĐIỆN THOẠI (CHỈ XẾP 1 CỘT KHI MÀN HÌNH NHỎ)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(1, 1fr) !important; /* Ra điện thoại mới xếp thành 1 cột */
+    gap: 20px !important;
+  }
 }
