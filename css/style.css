@@ -20,12 +20,23 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Đổi font hiện đại và dễ đọc hơn */
+/* Hệ thống font Sans-serif hiện đại, sắc nét, dễ đọc trên mọi màn hình */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cỡ chữ tiêu chuẩn cho nội dung (body text) */
+  font-size: 16px; 
+  
+  /* Độ dày chữ vừa phải (Regular) giúp người đọc không bị mỏi mắt */
+  font-weight: 400; 
+  
+  /* Giãn dòng lý tưởng bằng 1.6 - 1.85 lần cỡ chữ để văn bản thông thoáng */
+  line-height: 1.65; 
+  
+  /* Căn lề trái mặc định để mắt người đọc quét thông tin tự nhiên nhất */
+  text-align: left; 
+  
   color: var(--text-color);
   background-color: var(--bg-color);
-  line-height: 1.6;
 }
 
 h1, h2, h3, p {
@@ -101,11 +112,13 @@ a {
 
 /* Tiêu đề lớn h1 cực kỳ nổi bật */
 #main-title {
-  color: var(--primary-color); 
-  font-size: 46px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 20px;
+font-size: 48px;            /* Kích thước lớn nhất, tạo điểm nhấn thị giác đầu tiên */
+  font-weight: 900;           /* Độ dày tối đa (Black/Ultra Bold) cực kỳ nặng đô */
+  line-height: 1.2;           /* Tiêu đề ngắn nên khoảng cách dòng hẹp lại để các chữ gắn kết */
+  letter-spacing: -1px;       /* Thu hẹp khoảng cách giữa các chữ một chút cho tiêu đề chặt chẽ hơn */
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  text-align: left;
 }
 
 /* Đoạn văn giới thiệu ngắn */
@@ -169,20 +182,23 @@ a {
 
 /* Tiêu đề H2 của phần giới thiệu */
 .about-section h2 {
-  font-size: 32px;
-  font-weight: 800;
+font-size: 32px;            /* Đủ lớn để phân biệt với nội dung nhưng nhỏ hơn h1 */
+  font-weight: 800;           /* Độ dày Extra Bold vững chãi */
+  line-height: 1.3;
+  letter-spacing: -0.5px;
   color: var(--primary-color);
   margin-bottom: 24px;
-  border-left: 6px solid var(--accent-color); /* Vạch đứng màu cam cháy gắt */
-  padding-left: 18px;
+  text-align: left;
 }
 
 /* Các đoạn văn trong phần About */
 .about-section p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 20px;
+font-size: 16px;            /* Giữ nguyên kích thước tiêu chuẩn dễ đọc */
+  font-weight: 400;           /* Chữ mảnh vừa phải */
+  line-height: 1.8;           /* Tăng nhẹ giãn dòng ở các đoạn văn dài để tăng trải nghiệm đọc */
   color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: justify;        /* Căn đều 2 bên giúp các khối văn bản dài trông gọn gàng, vuông vức */
 }
 
 /* Danh sách đặc điểm nổi bật */
@@ -215,4 +231,31 @@ a {
 .topic-list li strong {
   color: var(--primary-color);
   font-weight: 700;
+   blockquote {
+  font-size: 20px;            /* Cỡ chữ lớn hơn đoạn văn thông thường để gây chú ý */
+  font-weight: 600;           /* Độ dày Semi Bold tạo sự nhấn mạnh */
+  line-height: 1.5;
+  font-style: italic;         /* In nghiêng tạo cảm giác nghệ thuật, suy tư */
+  color: var(--accent-color); /* Sử dụng màu cam cháy rực rỡ */
+  text-align: center;         /* Căn giữa dòng để tôn vinh câu trích dẫn */
+  
+  /* Tạo không gian xung quanh phần trích dẫn */
+  margin: 40px auto;
+  padding: 20px 40px;
+  max-width: 800px;
+  border-top: 2px dashed var(--primary-color);
+  border-bottom: 2px dashed var(--primary-color);
+  position: relative;
+}
+
+/* Thêm hiệu ứng dấu ngoặc kép trang trí bằng CSS */
+blockquote::before {
+  content: "“";
+  font-size: 60px;
+  font-weight: 900;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  opacity: 0.2;
+}
 }
