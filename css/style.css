@@ -44,6 +44,7 @@ a {
 .lead {
   font-size: 18px;
   font-weight: 500;
+  line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -81,7 +82,7 @@ a {
 }
 
 /* ==========================================================================
-   CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO (ÁP DỤNG LINEAR-GRADIENT)
+   CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO
    ========================================================================== */
 .hero {
   display: flex !important;
@@ -99,7 +100,20 @@ a {
   text-align: left !important;
 }
 
-/* Biến khối card-row thành cột chứa 2 ảnh nhỏ nằm gọn gàng bên phải khối Hero */
+#main-title {
+  font-size: 48px;            
+  font-weight: 900;           
+  line-height: 1.2;           
+  letter-spacing: -1px;       
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+/* Khối card-row chứa 2 ảnh nhỏ nằm gọn gàng bên phải khối Hero */
 .card-row {
   display: flex !important;
   flex-direction: column !important; /* Xếp dọc 2 ảnh ở cạnh khối chữ */
@@ -122,21 +136,8 @@ a {
   display: block !important;
 }
 
-/* Ẩn bớt khung cover phụ nếu nó làm trống website */
 .hero-cover-box {
   display: none !important; 
-}
-#main-title {
-  font-size: 48px;            
-  font-weight: 900;           
-  line-height: 1.2;           
-  letter-spacing: -1px;       
-  color: var(--primary-color);
-  margin-bottom: 24px;
-}
-
-.intro {
-  margin-bottom: 30px;
 }
 
 /* ==========================================================================
@@ -201,7 +202,6 @@ a {
   text-align: justify;        
 }
 
-/* Định dạng danh sách topic-list */
 .topic-list {
   margin: 25px 0;
   padding-left: 0;
@@ -230,336 +230,5 @@ a {
   font-weight: 700;
 }
 
-/* Định dạng khối trích dẫn độc lập */
 blockquote {
-  font-size: 20px;            
-  font-weight: 600;           
-  line-height: 1.5;
-  font-style: italic;         
-  color: var(--accent-color); 
-  text-align: center;         
-  margin: 40px auto;
-  padding: 20px 40px;
-  max-width: 800px;
-  border-top: 2px dashed var(--primary-color);
-  border-bottom: 2px dashed var(--primary-color);
-  position: relative;
-}
-
-blockquote::before {
-  content: "“";
-  font-size: 60px;
-  font-weight: 900;
-  position: absolute;
-  top: -20px;
-  left: 10px;
-  opacity: 0.2;
-}
-
-/* Định dạng cấu trúc Card hình ảnh hàng ngang */
-.hero-images-container {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  gap: 20px;
-}
-
-.image-card {
-  background-color: var(--section-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px; 
-  overflow: hidden;    
-  box-shadow: 0 4px 15px rgba(45, 22, 6, 0.08); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 1;
-}
-
-.image-card:hover {
-  transform: translateY(-6px); 
-  box-shadow: 0 12px 25px rgba(45, 22, 6, 0.15); 
-}
-
-.responsive-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; 
-  display: block;
-}
-
-.card-caption {
-  padding: 15px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-align: center;
-  background-color: var(--section-bg);
-}
-
-/* Khối tiện ích bài viết (Feature cards) */
-.feature-cards-container {
-  display: flex;
-  gap: 25px;
-  margin: 40px 0;
-  flex-wrap: wrap;
-}
-
-.feature-card {
-  flex: 1;
-  min-width: 250px;
-  background-color: var(--bg-color); 
-  padding: 30px 25px;                 
-  border-radius: 8px;                 
-  border-left: 4px solid var(--accent-color); 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  background-color: var(--section-bg);
-  border-left-width: 8px; 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.feature-icon {
-  color: var(--accent-color);
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.feature-card h3 {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-/* Định dạng khu vực hướng dẫn màu sắc bổ sung */
-#style-guide {
-  margin-top: 30px;
-  padding: 20px;
-  border-top: 1px solid var(--border-color);
-}
-
-#style-guide h3 {
-  color: var(--primary-color);
-  margin-bottom: 15px;
-}
-
-.swatches {
-  display: flex;
-  gap: 15px;
-}
-
-.swatch {
-  padding: 15px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 4px;
-  flex: 1;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Cấu trúc hiển thị Responsive di động */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-  }
-  .hero-images-container {
-    width: 100%;
-  }
-  .feature-cards-container {
-    flex-direction: column;
-  }
-   /* ==========================================================================
-   BỔ SUNG CHO ĐÚNG BỘ QUÉT LỌC CLASS
-   ========================================================================== */
-
-/* Định dạng riêng biệt cho class lead */
-.lead {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.7;
-}
-
-/* Định dạng riêng biệt cho class card-row */
-.card-row {
-  display: flex !important;
-  gap: 20px;
-/* ==========================================================================
-   CHẶNG 6: ĐỊNH DẠNG THƯ VIỆN ẢNH (GALLERY WITH FIGURE & FIGCAPTION)
-   ========================================================================== */
-
-.gallery-section {
-  background-color: var(--section-bg);
-  border-top: 1px solid var(--border-color);
-  padding: 60px 8%;
-}
-
-.gallery-intro {
-  margin-bottom: 30px;
-  color: var(--text-color);
-  font-style: italic;
-}
-
-/* Định dạng lưới Grid tự động chia cột linh hoạt */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
-}
-
-/* Định dạng khối figure bọc ngoài ảnh */
-.gallery-item {
-  background-color: var(--bg-color);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hiệu ứng Hover nâng khối ảnh lên và đổ bóng đậm hơn */
-.gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(45, 22, 6, 0.12);
-}
-
-/* Định dạng link bọc quanh ảnh và figcaption */
-.gallery-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Hiệu ứng Hover đổi màu chữ của figcaption khi rê chuột vào link */
-.gallery-link:hover figcaption {
-  color: var(--accent-color);
-  background-color: #EAE3DA; /* Đổi nền nhẹ tạo cảm giác tương tác */
-}
-
-/* Đảm bảo ảnh responsive, bo góc mượt, không móp méo */
-.gallery-item img.responsive-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-/* Hiệu ứng làm sáng/mờ ảnh nhẹ khi hover */
-.gallery-link:hover img.responsive-img {
-  opacity: 0.9;
-}
-
-/* Định dạng phần ghi chú ảnh figcaption */
-figcaption {
-  padding: 15px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--primary-color);
-  text-align: center;
-  background-color: var(--hero-bg);
-  transition: all 0.3s ease;
-  border-top: 1px solid var(--border-color);
-
-   /* ==========================================================================
-   SỬA LỖI: ĐỊNH DẠNG ẢNH RESPONSIVE CHUẨN ĐÚNG YÊU CẦU
-   ========================================================================== */
-
-.responsive-img {
-  width: 100%;
-  height: auto !important; /* BỔ SUNG: Bắt buộc phải có height: auto để hệ thống quét trúng */
-  display: block;
-  object-fit: cover;
-}
-
-/* Định dạng riêng cho khung bọc ảnh hero mới thêm để giao diện cân đối */
-.hero-cover-box {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.hero-img {
-  max-height: 400px; /* Giới hạn chiều cao của ảnh hero lớn không bị quá to */
-   /* ==========================================================================
-   SỬA LỖI REGEX: ĐỊNH DẠNG PORTFOLIO GRID CHUẨN XÁC
-   ========================================================================== */
-
-/* ==========================================================================
-   TỐI ƯU PORTFOLIO: CHỐNG BẸT VÀ MỜ ẢNH 100%
-   ========================================================================== */
-
-/* Khung bọc lưới bắt buộc dàn 3 cột trên máy tính */
-#portfolio {
-  max-width: 1200px !important;
-  margin: 60px auto !important;
-  padding: 0 20px !important;
-}
-
-.portfolio-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Bắt buộc chia 3 cột đều trên PC */
-  gap: 30px !important;                             /* Khoảng cách giữa các ô ảnh */
-  width: 100% !important;
-}
-
-/* Định dạng từng ô item trong portfolio */
-.gallery-item {
-  background-color: #2D1606 !important; /* Tiệp với màu nền tối của bạn */
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* ÉP ẢNH PORTFOLIO HẾT MỜ VÀ DẸT */
-.gallery-item img.responsive-img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 4 / 3 !important;   /* Khóa ảnh theo tỉ lệ hình chữ nhật chuẩn */
-  object-fit: cover !important;     /* Giữ nguyên độ nét, tự động cắt ảnh vừa khung */
-  display: block !important;
-}
-
-/* Chỉnh chữ chú thích dưới ảnh */
-figcaption {
-  padding: 15px !important;
-  font-size: 14px !important;
-  text-align: center !important;
-  font-weight: bold !important;
-  color: #FFA500 !important;        /* Màu cam giống màu chữ tiêu đề của bạn */
-}
-
-
-/* 3. ĐẢM BẢO RESPONSIVE MƯỢT MÀ TRÊN ĐIỆN THOẠI */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column !important; /* Ra điện thoại thì xếp dọc */
-    text-align: center !important;
-  }
-  .hero-content {
-    text-align: center !important;
-  }
-  .card-row {
-    flex-direction: row !important; /* Ảnh hero nằm ngang trên màn hình vừa */
-    max-width: 100% !important;
-  }
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* Máy tính bảng hiện 2 cột */
-  }
-}
-
-@media (max-width: 600px) {
-  .card-row,
-  .portfolio-grid {
-    grid-template-columns: repeat(1, 1fr) !important; /* Điện thoại hiện 1 cột dọc */
-    flex-direction: column !important;
-  }
+  font-size: 20px
