@@ -372,5 +372,80 @@ blockquote::before {
 .card-row {
   display: flex !important;
   gap: 20px;
+/* ==========================================================================
+   CHẶNG 6: ĐỊNH DẠNG THƯ VIỆN ẢNH (GALLERY WITH FIGURE & FIGCAPTION)
+   ========================================================================== */
+
+.gallery-section {
+  background-color: var(--section-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 60px 8%;
 }
+
+.gallery-intro {
+  margin-bottom: 30px;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+/* Định dạng lưới Grid tự động chia cột linh hoạt */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Định dạng khối figure bọc ngoài ảnh */
+.gallery-item {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng Hover nâng khối ảnh lên và đổ bóng đậm hơn */
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(45, 22, 6, 0.12);
+}
+
+/* Định dạng link bọc quanh ảnh và figcaption */
+.gallery-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hiệu ứng Hover đổi màu chữ của figcaption khi rê chuột vào link */
+.gallery-link:hover figcaption {
+  color: var(--accent-color);
+  background-color: #EAE3DA; /* Đổi nền nhẹ tạo cảm giác tương tác */
+}
+
+/* Đảm bảo ảnh responsive, bo góc mượt, không móp méo */
+.gallery-item img.responsive-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Hiệu ứng làm sáng/mờ ảnh nhẹ khi hover */
+.gallery-link:hover img.responsive-img {
+  opacity: 0.9;
+}
+
+/* Định dạng phần ghi chú ảnh figcaption */
+figcaption {
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  background-color: var(--hero-bg);
+  transition: all 0.3s ease;
+  border-top: 1px solid var(--border-color);
 }
