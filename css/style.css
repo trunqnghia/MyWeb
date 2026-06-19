@@ -357,4 +357,20 @@ blockquote::before {
   .feature-cards-container {
     flex-direction: column;
   }
+   /* ==========================================================================
+   BỔ SUNG CHO ĐÚNG BỘ QUÉT LỌC CLASS
+   ========================================================================== */
+
+/* Định dạng riêng biệt cho class lead */
+.lead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* Định dạng riêng biệt cho class card-row */
+.card-row {
+  display: flex !important;
+  gap: 20px;
+}
 }
