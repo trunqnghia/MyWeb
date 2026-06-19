@@ -481,52 +481,69 @@ figcaption {
    ========================================================================== */
 
 /* Khung bọc lưới bắt buộc dàn 3 cột trên máy tính */
+#portfolio {
+  max-width: 1200px !important;
+  margin: 60px auto !important;
+  padding: 0 20px !important;
+}
+
 .portfolio-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Ép chia làm 3 cột đều nhau */
+  grid-template-columns: repeat(3, 1fr) !important; /* Bắt buộc chia 3 cột đều trên PC */
   gap: 30px !important;                             /* Khoảng cách giữa các ô ảnh */
-  margin-top: 30px;
-  width: 100%;
-  max-width: 1200px;                                /* Giới hạn độ rộng khung để không bị giãn quá đà */
-  margin-left: auto;
-  margin-right: auto;
+  width: 100% !important;
 }
 
-/* Định dạng từng ô chứa ảnh */
+/* Định dạng từng ô item trong portfolio */
 .gallery-item {
-  background-color: var(--bg-color);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  background-color: #2D1606 !important; /* Tiệp với màu nền tối của bạn */
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
-/* KHẮC PHỤC ẢNH MỜ: Ép tỉ lệ khung hình chuẩn */
+/* ÉP ẢNH PORTFOLIO HẾT MỜ VÀ DẸT */
 .gallery-item img.responsive-img {
   width: 100% !important;
   height: auto !important;
-  aspect-ratio: 4 / 3 !important; /* Ép ảnh luôn nằm trong tỉ lệ 4:3 vàng, không bao giờ bị bẹt */
-  object-fit: cover !important;   /* Giữ nguyên độ sắc nét, tự cắt gọn theo khung */
-  display: block;
+  aspect-ratio: 4 / 3 !important;   /* Khóa ảnh theo tỉ lệ hình chữ nhật chuẩn */
+  object-fit: cover !important;     /* Giữ nguyên độ nét, tự động cắt ảnh vừa khung */
+  display: block !important;
 }
 
-/* Định dạng phần chữ dưới ảnh cho gọn gàng */
+/* Chỉnh chữ chú thích dưới ảnh */
 figcaption {
-  padding: 15px;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  background-color: #2D1606; /* Màu nền tối cho tiệp màu web của bạn */
-  color: #FFA500;            /* Màu chữ nổi bật */
+  padding: 15px !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  color: #FFA500 !important;        /* Màu cam giống màu chữ tiêu đề của bạn */
 }
 
-/* ==========================================================================
-   HỖ TRỢ TRÊN ĐIỆN THOẠI (CHỈ XẾP 1 CỘT KHI MÀN HÌNH NHỎ)
-   ========================================================================== */
-@media (max-width: 768px) {
+
+/* 3. ĐẢM BẢO RESPONSIVE MƯỢT MÀ TRÊN ĐIỆN THOẠI */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column !important; /* Ra điện thoại thì xếp dọc */
+    text-align: center !important;
+  }
+  .hero-content {
+    text-align: center !important;
+  }
+  .card-row {
+    flex-direction: row !important; /* Ảnh hero nằm ngang trên màn hình vừa */
+    max-width: 100% !important;
+  }
   .portfolio-grid {
-    grid-template-columns: repeat(1, 1fr) !important; /* Ra điện thoại mới xếp thành 1 cột */
-    gap: 20px !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Máy tính bảng hiện 2 cột */
   }
 }
+
+@media (max-width: 600px) {
+  .card-row,
+  .portfolio-grid {
+    grid-template-columns: repeat(1, 1fr) !important; /* Điện thoại hiện 1 cột dọc */
+    flex-direction: column !important;
+  }
