@@ -1,31 +1,110 @@
-/* Selector cho toàn bộ thẻ body: định dạng nền và font chữ tổng thể */
+/* Chặng 1: liên kết CSS ngoài và selector cơ bản */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #f4f4f9; /* Màu nền xám nhạt */
-    color: #333333;            /* Màu chữ xám đậm để dễ đọc */
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    line-height: 1.6;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #4b5563; /* Màu chữ chính (xám đậm phong cách tối giản) */
+  background-color: #fafaf9; /* Màu nền trắng kem ấm áp hợp vibe cafe */
 }
 
-/* Selector cho thẻ tiêu đề h1 */
-h1 {
-    color: #2c3e50;            /* Màu xanh đen đậm */
+h1, h2, h3, p {
+  margin-top: 0;
 }
 
-/* Selector cho thẻ đoạn văn p */
-p {
-    font-size: 16px;
-}
-
-/* Selector cho thẻ liên kết a */
 a {
-    color: #3498db;            /* Màu xanh dương cho liên kết */
-    text-decoration: none;     /* Bỏ gạch chân mặc định */
-    font-weight: bold;
+  color: #b45309; /* Màu nâu hổ phách làm màu nhấn chủ đạo */
 }
 
-/* Selector khi di chuột qua liên kết (hover) */
-a:hover {
-    color: #2980b9;            /* Đổi sang màu xanh đậm hơn khi rê chuột vào */
-    text-decoration: underline;/* Xuất hiện gạch chân */
+/* Chặng 2: class, id, selector kết hợp và cascade */
+.site-header {
+  padding: 18px 8%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 24px;
+  color: #78350f; /* Màu nâu đậm cho thương hiệu */
+}
+
+/* Selector kết hợp: Chỉ định dạng thẻ 'a' nằm bên trong class '.main-nav' */
+.main-nav a {
+  margin-right: 24px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #57534e;
+}
+
+/* Selector kết hợp có hiệu ứng hover */
+.main-nav a:hover {
+  color: #b45309;
+}
+
+/* Sử dụng ID Selector */
+#main-title {
+  color: #78350f; 
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+/* Định dạng phần Hero */
+.hero {
+  padding: 80px 8%;
+  background-color: #f5f5f4;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #b45309;
+}
+
+/* Định dạng phần Section About vừa thêm mới */
+.section {
+  padding: 60px 8%;
+}
+
+/* Class Selector kết hợp */
+.about-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto 40px auto; /* Căn giữa block phần giới thiệu */
+}
+
+/* Selector theo thẻ h2 nằm trong khu vực giới thiệu */
+.about-section h2 {
+  font-size: 32px;
+  color: #78350f;
+  margin-bottom: 24px;
+  border-left: 5px solid #b45309; /* Thêm thanh sọc màu nâu bên trái tiêu đề */
+  padding-left: 15px;
+}
+
+/* Selector theo thẻ p để chỉnh giãn dòng cho dễ đọc */
+.about-section p {
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* Sử dụng Class Selector cho danh sách */
+.topic-list {
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
+/* Selector kết hợp: Định dạng riêng cho các thẻ li bên trong .topic-list */
+.topic-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #44403c;
 }
