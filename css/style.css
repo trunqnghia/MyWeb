@@ -1,47 +1,62 @@
 /* ==========================================================================
-   CARD STYLES - KHÔI PHỤC THẨM MỸ GỐC
+   TỐI ƯU HÓA BOX-MODEL & CARD DESIGN
    ========================================================================== */
 
-/* 1. IMAGE CARD - GIỮ NGUYÊN BẢN SẮC, TỐI ƯU HIỂN THỊ */
+/* 1. Reset chuẩn để box-sizing hoạt động hiệu quả trên mọi phần tử */
+* {
+  box-sizing: border-box;
+}
+
+/* 2. Cấu trúc lại Image Card (Khu vực Hero) */
 .image-card {
-    background-color: var(--section-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px; /* Tinh chỉnh lại độ bo góc cho thanh lịch */
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Giữ độ mềm mại của bóng */
-    transition: transform 0.3s ease;
+  background-color: var(--section-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;           /* Bo góc nhẹ nhàng */
+  overflow: hidden;             /* Đảm bảo ảnh không tràn ra ngoài */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ tạo chiều sâu */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-card:hover {
-    transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ nhàng */
+  transform: translateY(-5px);  /* Hiệu ứng nổi khi di chuột */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* 2. FEATURE CARD - CÂN BẰNG TỶ LỆ VÀ KHOẢNG CÁCH */
+/* 3. Cấu trúc Feature Card (Khu vực About) */
 .feature-card {
-    background-color: var(--section-bg);
-    padding: 30px; /* Duy trì khoảng thở rộng rãi */
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Bóng đổ mờ, tinh tế */
-    transition: all 0.3s ease;
+  background-color: #FFFFFF;    /* Nền trắng giúp khối tách biệt với nền section */
+  padding: 30px;                /* Khoảng đệm bên trong */
+  margin-bottom: 20px;          /* Khoảng cách giữa các card khi xếp chồng */
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--accent-color); /* Điểm nhấn viền trái */
+  border-radius: 8px;           /* Bo góc đồng bộ */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-    border-color: var(--accent-color); /* Chỉ thay đổi viền để giữ sự sang trọng */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-left-width: 8px;       /* Tăng độ dày viền khi tương tác */
 }
 
-/* 3. VỀ PHẦN ABOUT - GIỮ NGUYÊN CẤU TRÚC VUÔNG VỨC */
+/* 4. Cải thiện khối About chính */
 .about-section {
-    background-color: var(--section-bg);
-    padding: 50px; 
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    /* Đảm bảo box-sizing: border-box đã được reset ở đầu trang */
+  background-color: var(--section-bg);
+  padding: 60px;                /* Padding lớn tạo cảm giác cao cấp */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ lan tỏa rộng */
+  margin-bottom: 60px;
 }
 
-/* 4. ĐẢM BẢO TÍNH TOÀN VẸN CỦA BỐ CỤC */
-.hero, .section {
-    padding: 60px 8%; /* Giữ đúng tỷ lệ dàn trang của bạn */
+/* 5. Định dạng khối Quote (Trích dẫn) */
+blockquote {
+  background-color: rgba(217, 119, 6, 0.05); /* Nền màu cam nhạt tinh tế */
+  padding: 40px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+  border-top: none;             /* Loại bỏ viền dashed cũ để trông hiện đại hơn */
+  border-bottom: none;
+  margin: 40px auto;
+  position: relative;
 }
