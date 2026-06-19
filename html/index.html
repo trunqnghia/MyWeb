@@ -1,37 +1,22 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyWeb - Cà phê & Chữa lành</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="site-header" id="top">
-  <div class="brand">Ngoại Hạng Cafe</div>
-  <nav class="main-nav" aria-label="Điều hướng chính">
-    <a href="#hero">Trang chủ</a>
-    <a href="#about">Giới thiệu</a>
-    <a href="#gallery">Thư viện</a>
-    <a href="#contact">Liên hệ</a>
-  </nav>
-</header>
-
 <main>
   <section class="hero" id="hero">
-    <p class="eyebrow">Hành trình săn tìm những góc quán trốn deadline</p>
-    <h1 id="main-title">Cà Phê, Sách & Những Ý Tưởng Mới</h1>
-    <p class="intro">Chào mừng bạn đến với không gian chia sẻ những quán cà phê "ruột" của mình. Nơi có hương espresso đậm đà, những góc bàn ngập nắng và list nhạc lofi cực chill giúp bạn x5 hiệu suất làm việc.</p>
+    <div class="hero-content">
+      <p class="eyebrow">Hành trình săn tìm những góc quán trốn deadline</p>
+      <h1 id="main-title">Cà Phê, Sách & Những Ý Tưởng Mới</h1>
+      <p class="intro">Chào mừng bạn đến với không gian chia sẻ những quán cà phê "ruột" của mình. Nơi có hương espresso đậm đà, những góc bàn ngập nắng và list nhạc lofi cực chill giúp bạn x5 hiệu suất làm việc.</p>
+      <a class="primary-button" href="#about">Khám phá chủ đề</a>
+    </div>
     
     <div class="hero-images-container">
-      <div class="image-box">
+      <div class="image-card">
         <img src="../img/cafe1.jpg" alt="Ly cà phê thơm ngon" class="responsive-img">
+        <div class="card-caption">Hương vị Espresso nguyên bản</div>
       </div>
-      <div class="image-box">
+      <div class="image-card">
         <img src="../img/cafe2.jpg" alt="Không gian góc quán yên tĩnh" class="responsive-img">
+        <div class="card-caption">Góc làm việc ngập tràn cảm hứng</div>
       </div>
     </div>
-    <a class="primary-button" href="#about">Khám phá chủ đề</a>
   </section>
 
   <section class="section about-section" id="about">
@@ -39,12 +24,26 @@
     <p>Mình bắt đầu hành trình "coffee hopping" này từ những ngày chạy deadline ngập đầu và nhận ra không gian xung quanh ảnh hưởng cực kỳ lớn đến khả năng sáng tạo. Trang web này ra đời để lưu giữ trải nghiệm về những quán cà phê có gu, yên tĩnh và bật nhạc đủ tinh tế cho những ai cần sự tập trung.</p>
     <p>Đối tượng mà mình hướng tới là các bạn học sinh, sinh viên và freelancer – những người luôn đi tìm một chiếc bàn vừa tầm, một ổ cắm điện tiện lợi và một ly cold brew mát lạnh để kích hoạt bộ não làm việc hiệu quả.</p>
     
-    <ul class="topic-list">
-      <li><strong>Không gian yên tĩnh:</strong> Đánh giá chi tiết về độ ồn, ánh sáng và âm nhạc của từng quán.</li>
-      <li><strong>Trải nghiệm thực tế:</strong> Review chân thực về chất lượng đồ uống, thái độ phục vụ và "vibe" đặc trưng.</li>
-      <li><strong>Tiện ích làm việc:</strong> Cập nhật thông tin về tốc độ Wi-Fi, số lượng ổ cắm và độ thoải mái của bàn ghế.</li>
-    </ul>
+    <div class="feature-cards-container">
+      <div class="feature-card">
+        <div class="feature-icon">■</div>
+        <h3>Không gian yên tĩnh</h3>
+        <p>Đánh giá chi tiết về độ ồn, ánh sáng và âm nhạc của từng quán rõ ràng.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">■</div>
+        <h3>Trải nghiệm thực tế</h3>
+        <p>Review chân thực về chất lượng đồ uống, thái độ phục vụ và "vibe" đặc trưng.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">■</div>
+        <h3>Tiện ích làm việc</h3>
+        <p>Cập nhật thông tin về tốc độ Wi-Fi, số lượng ổ cắm và độ thoải mái của ghế.</p>
+      </div>
+    </div>
+
+    <blockquote>
+      Không gian tốt không chỉ là nơi ngồi che mưa che nắng, đó là nơi nuôi dưỡng những ý tưởng thay đổi cuộc đời bạn.
+    </blockquote>
   </section>
 </main>
-</body>
-</html>
