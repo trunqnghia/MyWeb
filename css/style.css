@@ -387,4 +387,52 @@ blockquote::before {
   line-height: 1.6 !important;
   margin-bottom: 0 !important;
   text-align: left !important; /* Trả về căn lề trái tự nhiên cho card ngắn */
+
+/* ==========================================================================
+   BỔ SUNG: ĐỊNH DẠNG KHỐI 2 ẢNH DÀN HÀNG NGANG
+   ========================================================================== */
+
+/* Khung bọc bên ngoài sử dụng flex để đẩy 2 khối ảnh nằm ngang */
+.hero-images-container {
+  display: flex;
+  gap: 24px;                 /* Khoảng cách giữa 2 khối ảnh */
+  max-width: 800px;          /* Độ rộng tối đa của toàn bộ vùng chứa ảnh */
+  margin: 30px auto;         /* Căn giữa khối ảnh và tạo khoảng cách trên dưới */
+  justify-content: center;   /* Căn giữa các item bên trong */
+}
+
+/* Định dạng cho từng hộp chứa ảnh đơn lẻ */
+.image-box {
+  flex: 1;                   /* Chia đều không gian 50/50 cho 2 ảnh */
+  max-width: 380px;          /* Giới hạn độ rộng của mỗi ảnh */
+  text-align: left;          /* Căn lề trái chữ mô tả ảnh giống như mẫu */
+}
+
+/* Định dạng ảnh responsive */
+.responsive-img {
+  width: 100%;               /* Ảnh tự động co giãn hết khung chứa */
+  height: 220px;             /* Thiết lập chiều cao cố định để 2 ảnh bằng khằn nhau */
+  object-fit: cover;         /* Cắt ảnh thông minh để không bị bóp méo */
+  border-radius: 4px;        /* Bo góc nhẹ theo phong cách tinh tế */
+  display: block;
+  margin-bottom: 8px;        /* Khoảng cách giữa ảnh và chữ mô tả bên dưới */
+}
+
+/* Chữ mô tả nhỏ dưới mỗi ảnh */
+.img-caption {
+  font-size: 13px;
+  color: var(--text-color);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Hỗ trợ hiển thị mượt mà trên điện thoại di động (Xếp dọc lại nếu màn hình quá nhỏ) */
+@media (max-width: 650px) {
+  .hero-images-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-box {
+    max-width: 100%;
+  }
 }
