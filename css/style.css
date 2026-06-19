@@ -1,40 +1,30 @@
 /* ==========================================================================
    CHẶNG 1: THIẾT LẬP CƠ BẢN (RESET & VARIABLES)
    ========================================================================== */
-
-/* Thiết lập bảng màu "Espresso Đậm Đặc" qua CSS Variables để dễ quản lý */
 :root {
-  --primary-color: #2D1606;      /* Nâu đen Espresso rang cháy - Dùng cho tiêu đề, thương hiệu */
-  --accent-color: #D97706;       /* Cam cháy Crema rực rỡ - Dùng làm điểm nhấn, vạch kẻ, hover */
-  --bg-color: #F3EFEA;           /* Nền mộc bê tông/vải thô - Giúp dịu mắt và tôn màu chữ */
-  --section-bg: #FFFFFF;         /* Nền trắng tinh cho các khối nội dung nổi bật */
-  --hero-bg: #E5DFD8;            /* Nền tối hơn một chút cho khu vực Hero */
-  --text-color: #374151;         /* Màu chữ xám than đậm - Sắc nét nhưng không bị gắt như đen tuyền */
-  --cta-color: #DC2626;          /* Đỏ ớt tương phản cực cao - Dùng cho nút kêu gọi hành động */
-  --cta-hover-color: #B91C1C;    /* Đỏ trầm hơn khi di chuột vào nút */
-  --border-color: #E7E5E4;       /* Đường viền xám nhẹ */
+  --primary-color: #2D1606;      
+  --accent-color: #D97706;       
+  --bg-color: #F3EFEA;           
+  --section-bg: #FFFFFF;         
+  --hero-bg: #E5DFD8;            
+  --text-color: #374151;         
+  --cta-color: #DC2626;          
+  --cta-hover-color: #B91C1C;    
+  --border-color: #E7E5E4;       
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-/* Hệ thống font Sans-serif hiện đại, sắc nét, dễ đọc trên mọi màn hình */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  
-  /* Cỡ chữ tiêu chuẩn cho nội dung (body text) */
   font-size: 16px; 
-  
-  /* Độ dày chữ vừa phải (Regular) giúp người đọc không bị mỏi mắt */
   font-weight: 400; 
-  
-  /* Giãn dòng lý tưởng bằng 1.6 - 1.85 lần cỡ chữ để văn bản thông thoáng */
   line-height: 1.65; 
-  
-  /* Căn lề trái mặc định để mắt người đọc quét thông tin tự nhiên nhất */
   text-align: left; 
-  
   color: var(--text-color);
   background-color: var(--bg-color);
 }
@@ -47,32 +37,36 @@ h1, h2, h3, p {
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+  transition: color 0.3s ease;
 }
 
+/* Class lead mở rộng kích thước chữ */
+.lead {
+  font-size: 18px;
+  font-weight: 500;
+}
 
 /* ==========================================================================
-   CHẶNG 2: ĐỊNH DẠNG HEADER & NAVIGATION (THANH ĐIỀU HƯỚNG)
+   CHẶNG 2: ĐỊNH DẠNG HEADER & NAVIGATION
    ========================================================================== */
-
 .site-header {
   padding: 20px 8%;
   background-color: var(--section-bg);
-  border-bottom: 2px solid var(--primary-color); /* Đường viền dưới dày màu nâu đen tạo sự cứng cáp */
-  display: block; /* Đảm bảo hiển thị block ổn định */
+  border-bottom: 3px solid var(--primary-color); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* Định dạng tên thương hiệu góc trái */
 .brand {
-  font-weight: 900; /* Độ dày chữ tối đa để tăng độ "nặng đô" */
+  font-weight: 900; 
   font-size: 26px;
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 10px; /* Tạo khoảng cách nhẹ nếu màn hình nhỏ bị nhảy dòng */
 }
 
-/* Định dạng các liên kết menu */
 .main-nav a {
   margin-right: 24px;
   font-weight: 700;
@@ -82,90 +76,83 @@ a {
   letter-spacing: 0.5px;
 }
 
-/* Hiệu ứng di chuột cho menu: Đổi sang màu cam cháy */
 .main-nav a:hover {
   color: var(--accent-color);
 }
 
-
 /* ==========================================================================
-   CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO (ĐẦU TRANG)
+   CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO (ÁP DỤNG LINEAR-GRADIENT)
    ========================================================================== */
-
 .hero {
-  padding: 90px 8%;
-  background-color: var(--hero-bg);
-  border-left: 10px solid var(--primary-color); /* Thanh dọc màu nâu siêu dày bên cạnh trái */
-  margin-bottom: 50px;
+  padding: 80px 8%;
+  /* Bổ sung hiệu ứng nền chuyển sắc linear-gradient tinh tế theo yêu cầu của thầy */
+  background: linear-gradient(135deg, var(--hero-bg) 0%, #D4C3B3 100%);
+  border-left: 10px solid var(--primary-color); 
+  margin-bottom: 60px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Dòng chữ nhỏ định hướng phía trên tiêu đề chính */
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
 .eyebrow {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: var(--accent-color); /* Màu cam rực rỡ */
+  color: var(--accent-color); 
   margin-bottom: 12px;
   display: inline-block;
 }
 
-/* Tiêu đề lớn h1 cực kỳ nổi bật */
 #main-title {
-font-size: 48px;            /* Kích thước lớn nhất, tạo điểm nhấn thị giác đầu tiên */
-  font-weight: 900;           /* Độ dày tối đa (Black/Ultra Bold) cực kỳ nặng đô */
-  line-height: 1.2;           /* Tiêu đề ngắn nên khoảng cách dòng hẹp lại để các chữ gắn kết */
-  letter-spacing: -1px;       /* Thu hẹp khoảng cách giữa các chữ một chút cho tiêu đề chặt chẽ hơn */
+  font-size: 48px;            
+  font-weight: 900;           
+  line-height: 1.2;           
+  letter-spacing: -1px;       
   color: var(--primary-color);
   margin-bottom: 24px;
-  text-align: left;
 }
 
-/* Đoạn văn giới thiệu ngắn */
 .intro {
-  font-size: 18px;
-  max-width: 700px;
-  color: var(--text-color);
   margin-bottom: 30px;
 }
-
 
 /* ==========================================================================
    CHẶNG 4: NÚT KÊU GỌI HÀNH ĐỘNG (PRIMARY BUTTON)
    ========================================================================== */
-
 .primary-button {
   display: inline-block;
   padding: 14px 32px;
-  background-color: var(--cta-color); /* Màu đỏ giật gân đập ngay vào mắt */
-  color: #FFFFFF !important; /* Bắt buộc chữ luôn màu trắng */
+  background-color: var(--cta-color); 
+  color: #FFFFFF !important; 
   font-weight: 800;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2); /* Tạo bóng đổ màu đỏ nhẹ */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Hiệu ứng chuyển động cao cấp */
+  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2); 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Trạng thái Hover của nút bấm */
 .primary-button:hover {
   background-color: var(--cta-hover-color);
-  transform: translateY(-3px); /* Nút nhích nhẹ lên trên tạo độ nổi */
-  box-shadow: 0 10px 20px rgba(185, 28, 28, 0.4); /* Bóng đổ đậm và rộng hơn */
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 20px rgba(185, 28, 28, 0.4); 
 }
 
-/* Trạng thái bấm xuống của nút (Active) */
 .primary-button:active {
   transform: translateY(-1px);
 }
 
-
 /* ==========================================================================
-   CHẶNG 5: ĐỊNH DẠNG KHU VỰC GIỚI THIỆU (ABOUT SECTION)
+   CHẶNG 5: ĐỊNH DẠNG KHU VỰC GIỚI THIỆU & CARDS/LAYOUT
    ========================================================================== */
-
-/* Khung bọc bao quanh toàn bộ phần About */
 .section {
   padding: 60px 8%;
 }
@@ -174,52 +161,47 @@ font-size: 48px;            /* Kích thước lớn nhất, tạo điểm nhấn
   background-color: var(--section-bg);
   border-radius: 8px;
   max-width: 950px;
-  margin: 0 auto 60px auto; /* Căn giữa block */
+  margin: 0 auto 60px auto; 
   padding: 50px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Tạo bóng đổ nhẹ cho khối nội dung */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
   border: 1px solid var(--border-color);
 }
 
-/* Tiêu đề H2 của phần giới thiệu */
 .about-section h2 {
-font-size: 32px;            /* Đủ lớn để phân biệt với nội dung nhưng nhỏ hơn h1 */
-  font-weight: 800;           /* Độ dày Extra Bold vững chãi */
+  font-size: 32px;            
+  font-weight: 800;           
   line-height: 1.3;
   letter-spacing: -0.5px;
   color: var(--primary-color);
   margin-bottom: 24px;
-  text-align: left;
 }
 
-/* Các đoạn văn trong phần About */
 .about-section p {
-font-size: 16px;            /* Giữ nguyên kích thước tiêu chuẩn dễ đọc */
-  font-weight: 400;           /* Chữ mảnh vừa phải */
-  line-height: 1.8;           /* Tăng nhẹ giãn dòng ở các đoạn văn dài để tăng trải nghiệm đọc */
+  font-size: 16px;            
+  font-weight: 400;           
+  line-height: 1.8;           
   color: var(--text-color);
   margin-bottom: 20px;
-  text-align: justify;        /* Căn đều 2 bên giúp các khối văn bản dài trông gọn gàng, vuông vức */
+  text-align: justify;        
 }
 
-/* Danh sách đặc điểm nổi bật */
+/* Định dạng danh sách topic-list */
 .topic-list {
-  margin-top: 35px;
+  margin: 25px 0;
   padding-left: 0;
-  list-style: none; /* Tắt dấu chấm tròn mặc định của HTML */
+  list-style: none; 
 }
 
-/* Từng dòng trong danh sách */
 .topic-list li {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-size: 16px;
   position: relative;
-  padding-left: 25px; /* Nhường chỗ cho dấu gạch đầu dòng tự chế */
+  padding-left: 25px; 
   color: var(--text-color);
 }
 
-/* Tạo dấu gạch đầu dòng tùy biến màu cam cháy để tăng tính đồng bộ */
 .topic-list li::before {
-  content: "■"; /* Sử dụng hình ô vuông nhỏ màu cam */
+  content: "■"; 
   position: absolute;
   left: 0;
   color: var(--accent-color);
@@ -227,22 +209,19 @@ font-size: 16px;            /* Giữ nguyên kích thước tiêu chuẩn dễ �
   top: 2px;
 }
 
-/* Định dạng riêng cho chữ in đậm trong thẻ li - ĐÃ SỬA DẤU ĐÓNG NGOẶC */
 .topic-list li strong {
   color: var(--primary-color);
   font-weight: 700;
-} /* <-- Đóng đúng vị trí ở đây */
+}
 
-/* Định dạng khối trích dẫn blockquote - ĐỂ RA NGOÀI ĐỘC LẬP */
+/* Định dạng khối trích dẫn độc lập */
 blockquote {
-  font-size: 20px;            /* Cỡ chữ lớn hơn đoạn văn thông thường để gây chú ý */
-  font-weight: 600;           /* Độ dày Semi Bold tạo sự nhấn mạnh */
+  font-size: 20px;            
+  font-weight: 600;           
   line-height: 1.5;
-  font-style: italic;         /* In nghiêng tạo cảm giác nghệ thuật, suy tư */
-  color: var(--accent-color); /* Sử dụng màu cam cháy rực rỡ */
-  text-align: center;         /* Căn giữa dòng để tôn vinh câu trích dẫn */
-  
-  /* Tạo không gian xung quanh phần trích dẫn */
+  font-style: italic;         
+  color: var(--accent-color); 
+  text-align: center;         
   margin: 40px auto;
   padding: 20px 40px;
   max-width: 800px;
@@ -251,7 +230,6 @@ blockquote {
   position: relative;
 }
 
-/* Thêm hiệu ứng dấu ngoặc kép trang trí bằng CSS */
 blockquote::before {
   content: "“";
   font-size: 60px;
@@ -260,50 +238,9 @@ blockquote::before {
   top: -20px;
   left: 10px;
   opacity: 0.2;
-
-   /* ==========================================================================
-   BỔ SUNG/TỐI ƯU CÁC KHỐI NỘI DUNG (CARDS & LAYOUT)
-   ========================================================================== */
-
-/* 1. Thiết lập toàn cục reset chuẩn hơn */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-/* 2. Cấu trúc lại Header thành một thanh cố định thanh lịch */
-.site-header {
-  padding: 20px 8%;
-  background-color: var(--section-bg);
-  border-bottom: 3px solid var(--primary-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-}
-
-.brand {
-  margin-bottom: 0; /* Reset đè lại thuộc tính cũ */
-}
-
-/* 3. Tối ưu khu vực Hero thành Layout Flexbox hai cột chứa Card */
-.hero {
-  padding: 80px 8%;
-  background-color: var(--hero-bg);
-  border-left: 10px solid var(--primary-color);
-  margin-bottom: 60px;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  flex-wrap: wrap; /* Hỗ trợ responsive tự động */
-}
-
-.hero-content {
-  flex: 1;
-  min-width: 300px;
-}
-
+/* Định dạng cấu trúc Card hình ảnh hàng ngang */
 .hero-images-container {
   flex: 1;
   min-width: 300px;
@@ -311,26 +248,25 @@ blockquote::before {
   gap: 20px;
 }
 
-/* 4. ĐỊNH DẠNG IMAGE CARD (Thẻ hình ảnh ở Hero) */
 .image-card {
   background-color: var(--section-bg);
   border: 1px solid var(--border-color);
-  border-radius: 12px; /* Bo góc mượt mà */
-  overflow: hidden;    /* Đảm bảo ảnh không đè lên góc bo */
-  box-shadow: 0 4px 15px rgba(45, 22, 6, 0.08); /* Đổ bóng tone nâu ấm nhẹ */
+  border-radius: 12px; 
+  overflow: hidden;    
+  box-shadow: 0 4px 15px rgba(45, 22, 6, 0.08); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex: 1;
 }
 
 .image-card:hover {
-  transform: translateY(-6px); /* Hiệu ứng nhấc card lên khi di chuột */
-  box-shadow: 0 12px 25px rgba(45, 22, 6, 0.15); /* Bóng đổ sâu hơn */
+  transform: translateY(-6px); 
+  box-shadow: 0 12px 25px rgba(45, 22, 6, 0.15); 
 }
 
 .responsive-img {
   width: 100%;
   height: 220px;
-  object-fit: cover; /* Giữ tỷ lệ ảnh không bị móp méo */
+  object-fit: cover; 
   display: block;
 }
 
@@ -343,7 +279,7 @@ blockquote::before {
   background-color: var(--section-bg);
 }
 
-/* 5. ĐỊNH DẠNG FEATURE CARDS (Thẻ tiện ích ở phần About) */
+/* Khối tiện ích bài viết (Feature cards) */
 .feature-cards-container {
   display: flex;
   gap: 25px;
@@ -354,17 +290,17 @@ blockquote::before {
 .feature-card {
   flex: 1;
   min-width: 250px;
-  background-color: var(--bg-color); /* Màu nền tương phản nhẹ với nền trắng của About */
-  padding: 30px 25px;                 /* Padding rộng rãi tạo "khoảng thở" cho chữ */
-  border-radius: 8px;                 /* Bo góc đồng bộ */
-  border-left: 4px solid var(--accent-color); /* Vạch màu cam nhấn điểm thương hiệu bên trái */
+  background-color: var(--bg-color); 
+  padding: 30px 25px;                 
+  border-radius: 8px;                 
+  border-left: 4px solid var(--accent-color); 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
   background-color: var(--section-bg);
-  border-left-width: 8px; /* Tăng độ dày vạch cam khi hover */
+  border-left-width: 8px; 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
@@ -382,57 +318,43 @@ blockquote::before {
   margin-bottom: 10px;
 }
 
-.feature-card p {
-  font-size: 14px !important;
-  line-height: 1.6 !important;
-  margin-bottom: 0 !important;
-  text-align: left !important; /* Trả về căn lề trái tự nhiên cho card ngắn */
+/* Định dạng khu vực hướng dẫn màu sắc bổ sung */
+#style-guide {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+}
 
-/* ==========================================================================
-   BỔ SUNG: ĐỊNH DẠNG KHỐI 2 ẢNH DÀN HÀNG NGANG
-   ========================================================================== */
+#style-guide h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
 
-/* Khung bọc bên ngoài sử dụng flex để đẩy 2 khối ảnh nằm ngang */
-.hero-images-container {
+.swatches {
   display: flex;
-  gap: 24px;                 /* Khoảng cách giữa 2 khối ảnh */
-  max-width: 800px;          /* Độ rộng tối đa của toàn bộ vùng chứa ảnh */
-  margin: 30px auto;         /* Căn giữa khối ảnh và tạo khoảng cách trên dưới */
-  justify-content: center;   /* Căn giữa các item bên trong */
+  gap: 15px;
 }
 
-/* Định dạng cho từng hộp chứa ảnh đơn lẻ */
-.image-box {
-  flex: 1;                   /* Chia đều không gian 50/50 cho 2 ảnh */
-  max-width: 380px;          /* Giới hạn độ rộng của mỗi ảnh */
-  text-align: left;          /* Căn lề trái chữ mô tả ảnh giống như mẫu */
+.swatch {
+  padding: 15px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Định dạng ảnh responsive */
-.responsive-img {
-  width: 100%;               /* Ảnh tự động co giãn hết khung chứa */
-  height: 220px;             /* Thiết lập chiều cao cố định để 2 ảnh bằng khằn nhau */
-  object-fit: cover;         /* Cắt ảnh thông minh để không bị bóp méo */
-  border-radius: 4px;        /* Bo góc nhẹ theo phong cách tinh tế */
-  display: block;
-  margin-bottom: 8px;        /* Khoảng cách giữa ảnh và chữ mô tả bên dưới */
-}
-
-/* Chữ mô tả nhỏ dưới mỗi ảnh */
-.img-caption {
-  font-size: 13px;
-  color: var(--text-color);
-  margin: 0;
-  font-style: italic;
-}
-
-/* Hỗ trợ hiển thị mượt mà trên điện thoại di động (Xếp dọc lại nếu màn hình quá nhỏ) */
-@media (max-width: 650px) {
-  .hero-images-container {
+/* Cấu trúc hiển thị Responsive di động */
+@media (max-width: 768px) {
+  .hero {
     flex-direction: column;
-    align-items: center;
   }
-  .image-box {
-    max-width: 100%;
+  .hero-images-container {
+    width: 100%;
+  }
+  .feature-cards-container {
+    flex-direction: column;
   }
 }
