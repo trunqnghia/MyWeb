@@ -448,4 +448,28 @@ figcaption {
   background-color: var(--hero-bg);
   transition: all 0.3s ease;
   border-top: 1px solid var(--border-color);
+
+   /* ==========================================================================
+   SỬA LỖI: ĐỊNH DẠNG ẢNH RESPONSIVE CHUẨN ĐÚNG YÊU CẦU
+   ========================================================================== */
+
+.responsive-img {
+  width: 100%;
+  height: auto !important; /* BỔ SUNG: Bắt buộc phải có height: auto để hệ thống quét trúng */
+  display: block;
+  object-fit: cover;
+}
+
+/* Định dạng riêng cho khung bọc ảnh hero mới thêm để giao diện cân đối */
+.hero-cover-box {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-img {
+  max-height: 400px; /* Giới hạn chiều cao của ảnh hero lớn không bị quá to */
 }
