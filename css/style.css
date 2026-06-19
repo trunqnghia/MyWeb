@@ -84,32 +84,48 @@ a {
    CHẶNG 3: ĐỊNH DẠNG KHU VỰC HERO (ÁP DỤNG LINEAR-GRADIENT)
    ========================================================================== */
 .hero {
-  padding: 80px 8%;
-  /* Bổ sung hiệu ứng nền chuyển sắc linear-gradient tinh tế theo yêu cầu của thầy */
-  background: linear-gradient(135deg, var(--hero-bg) 0%, #D4C3B3 100%);
-  border-left: 10px solid var(--primary-color); 
-  margin-bottom: 60px;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-direction: row !important; /* Xếp chữ một bên, cụm ảnh một bên */
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 40px !important;
+  max-width: 1200px !important;
+  margin: 40px auto !important;
+  padding: 0 20px !important;
 }
 
 .hero-content {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 !important;
+  text-align: left !important;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--accent-color); 
-  margin-bottom: 12px;
-  display: inline-block;
+/* Biến khối card-row thành cột chứa 2 ảnh nhỏ nằm gọn gàng bên phải khối Hero */
+.card-row {
+  display: flex !important;
+  flex-direction: column !important; /* Xếp dọc 2 ảnh ở cạnh khối chữ */
+  gap: 20px !important;
+  flex: 1 !important;
+  max-width: 400px !important;
 }
 
+.card-row .image-box {
+  width: 100% !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+.card-row .image-box img {
+  width: 100% !important;
+  height: 180px !important;       /* Cố định chiều cao ảnh nhỏ Hero */
+  object-fit: cover !important;    /* Chống móp méo ảnh */
+  display: block !important;
+}
+
+/* Ẩn bớt khung cover phụ nếu nó làm trống website */
+.hero-cover-box {
+  display: none !important; 
+}
 #main-title {
   font-size: 48px;            
   font-weight: 900;           
