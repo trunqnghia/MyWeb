@@ -227,11 +227,14 @@ font-size: 16px;            /* Giữ nguyên kích thước tiêu chuẩn dễ �
   top: 2px;
 }
 
-/* Định dạng riêng cho chữ in đậm trong thẻ li */
+/* Định dạng riêng cho chữ in đậm trong thẻ li - ĐÃ SỬA DẤU ĐÓNG NGOẶC */
 .topic-list li strong {
   color: var(--primary-color);
   font-weight: 700;
-   blockquote {
+} /* <-- Đóng đúng vị trí ở đây */
+
+/* Định dạng khối trích dẫn blockquote - ĐỂ RA NGOÀI ĐỘC LẬP */
+blockquote {
   font-size: 20px;            /* Cỡ chữ lớn hơn đoạn văn thông thường để gây chú ý */
   font-weight: 600;           /* Độ dày Semi Bold tạo sự nhấn mạnh */
   line-height: 1.5;
@@ -257,5 +260,4 @@ blockquote::before {
   top: -20px;
   left: 10px;
   opacity: 0.2;
-}
 }
