@@ -472,4 +472,16 @@ figcaption {
 
 .hero-img {
   max-height: 400px; /* Giới hạn chiều cao của ảnh hero lớn không bị quá to */
+   /* ==========================================================================
+   SỬA LỖI REGEX: ĐỊNH DẠNG PORTFOLIO GRID CHUẨN XÁC
+   ========================================================================== */
+
+.portfolio-grid {
+  display: grid;
+  
+  /* ÉP ĐÚNG CHUẨN: Viết liền không khoảng trắng bên trong dấu ngoặc tròn */
+  grid-template-columns: repeat(3, 1fr); 
+  
+  gap: 30px; 
+  margin-top: 30px;
 }
