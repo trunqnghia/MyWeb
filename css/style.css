@@ -317,34 +317,76 @@ figcaption {
 }
 
 /* ==========================================================================
-   CHẶNG 7: MEDIA QUERIES (RESPONSIVE DI ĐỘNG & TABLET)
+   CHẶNG 7: ĐỊNH DẠNG KHU VỰC LIÊN HỆ (CONTACT FORM)
    ========================================================================== */
-@media (max-width: 992px) {
-  .hero {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 30px !important;
-  }
-  .hero-content {
-    text-align: center !important;
-  }
-  .card-row {
-    flex-direction: row !important;
-    max-width: 100% !important;
-  }
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 cột ở máy tính bảng */
-  }
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  padding: 50px;
+  background-color: var(--section-bg); /* Đổi sang nền trắng đồng bộ khối giới thiệu */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
 }
 
-@media (max-width: 600px) {
-  #main-title {
-    font-size: 32px;
-  }
-  .card-row {
-    flex-direction: column !important;
-  }
-  .portfolio-grid {
-    grid-template-columns: repeat(1, 1fr) !important; /* 1 cột dọc ở điện thoại */
-  }
+.contact-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+/* Khung sườn của Form */
+.contact-form {
+  max-width: 600px; /* Thu gọn form lại cho vừa tầm mắt, không bị quá bè */
+  margin: 0 left;   /* Căn lề trái thẳng hàng với tiêu đề */
+}
+
+/* Định dạng từng hàng (nhãn chữ + ô nhập dữ liệu) */
+.form-group {
+  display: flex;
+  flex-direction: column; /* Đẩy chữ label lên trên, ô nhập liệu xuống dưới */
+  gap: 8px;               /* Khoảng cách vừa phải giữa chữ và ô nhập */
+  margin-bottom: 20px;    /* Khoảng cách an toàn giữa các hàng, chống dính chữ */
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 15px;
+}
+
+/* Định dạng chung cho Input và Textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-family: inherit;   /* Thừa hưởng font mượt mà từ body */
+  font-size: 15px;
+  color: var(--text-color);
+  background-color: var(--bg-color); /* Nền kem sáng nhạt dịu mắt */
+  border: 1px solid var(--border-color);
+  border-radius: 6px;     /* Bo góc mềm mại cho hợp vibe chữa lành */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng đổi màu viền khi người dùng click vào ô nhập liệu */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15); /* Đổ bóng nhẹ màu cam hạt dẻ */
+  background-color: #ffffff;
+}
+
+/* Cố định nút bấm không bị kéo giãn theo chiều ngang form */
+.contact-form .primary-button {
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
 }
