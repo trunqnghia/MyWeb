@@ -186,3 +186,118 @@ if (mainMenu && header) {
 } else {
   console.error("Không tìm thấy thanh điều hướng để thực hiện Bài 4.");
 }
+/* ==========================================================================
+   BÀI TẬP 6: HỘP CHỌN CHỦ ĐỀ GIAO DIỆN (THEME SELECTOR)
+   (Giữ nguyên 100% HTML & CSS gốc - Tự tạo Dropdown và inject CSS bằng JS)
+   ========================================================================== */
+const brandHeader = document.querySelector(".site-header .brand");
+
+if (brandHeader) {
+  // 1. Tự sinh khối chọn theme HTML
+  const themeContainer = document.createElement("div");
+  themeContainer.style.marginLeft = "20px";
+  themeContainer.style.display = "inline-block";
+  
+  themeContainer.innerHTML = `
+    <select id="themeSelect" style="padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border-color); font-family: inherit; cursor: pointer;">
+      <option value="">☕ Giao diện mặc định</option>
+      <option value="dark-mode">🌙 Không gian tối</option>
+      <option value="warm-mode">🪵 Không gian ấm</option>
+    </select>
+  `;
+  
+  // Chèn hộp chọn ngay sau tên thương hiệu "Ngoại Hạng Cafe"
+  brandHeader.parentNode.insertBefore(themeContainer, brandHeader.nextSibling);
+
+  // 2. Inject CSS của các Mode vào hệ thống để không cần sửa file CSS gốc
+  const themeStyles = document.createElement("style");
+  themeStyles.innerHTML = `
+    body.dark-mode { background-color: #1a120b !important; color: #f5f5f5 !important; }
+    body.dark-mode .site-header, body.dark-mode .hero, body.dark-mode .section { background-color: #261a11 !important; border-color: #3c2a21 !important; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode label { color: #f5ece3 !important; }
+    body.dark-mode .feature-card { background-color: #1a120b !important; }
+    body.dark-mode p, body.dark-mode li { color: #dddddd !important; }
+
+    body.warm-mode { background-color: #fff7ed !important; color: #431407 !important; }
+    body.warm-mode .site-header, body.warm-mode .hero, body.warm-mode .section { background-color: #ffedd5 !important; border-color: #fed7aa !important; }
+    body.warm-mode h1, body.warm-mode h2, body.warm-mode h3 { color: #7c2d12 !important; }
+    body.warm-mode .feature-card { background-color: #fff7ed !important; }
+  `;
+  document.head.appendChild(themeStyles);
+
+  // 3. Xử lý sự kiện "change" thay đổi giao diện theo yêu cầu
+  const themeSelect = document.getElementById("themeSelect");
+  if (themeSelect) {
+    themeSelect.addEventListener("change", function () {
+      document.body.classList.remove("dark-mode", "warm-mode");
+      if (themeSelect.value !== "") {
+        document.body.classList.add(themeSelect.value);
+      }
+      console.log(`Bài 6: Đã chuyển đổi sang giao diện: ${themeSelect.value || "Mặc định"}`);
+    });
+  }
+}
+
+/* ==========================================================================
+   BÀI TẬP 7 & 8: TÌM KIẾM NỘI DUNG & BỘ LỌC THƯ VIỆN ẢNH (SEARCH & FILTER)
+   (Giữ nguyên 100% HTML & CSS gốc - Tự động thiết lập Data-Category cho ảnh)
+   ========================================================================== */
+const gallerySection = document.getElementById("portfolio");
+const galleryGrid = document.querySelector(".portfolio-grid");
+
+if (gallerySection && galleryGrid) {
+  
+  // --- BÀI TẬP 8: TẠO BỘ LỌC PHÂN LOẠI ẢNH (FILTER GALLERY) ---
+  // Định nghĩa các danh mục thực tế dựa trên thứ tự 4 bức ảnh sẵn có trong HTML của bạn
+  // Ảnh 1: Espresso (drink), Ảnh 2: Góc làm việc (space), Ảnh 3: Tổng quan (space), Ảnh 4: Capuccino (drink)
+  const items = galleryGrid.querySelectorAll(".gallery-item");
+  const categories = ["drink", "space", "space", "drink"];
+  
+  items.forEach((item, index) => {
+    item.dataset.category = categories[index]; // Gán thuộc tính data-category tự động bằng JS
+    item.classList.add("search-item");          // Tận dụng gán luôn class .search-item cho bài tập 7
+  });
+
+  // Tạo thanh công cụ chứa Nút lọc và Ô tìm kiếm đặt ngay trên lưới ảnh
+  const filterAndSearchContainer = document.createElement("div");
+  filterAndSearchContainer.style.cssText = "margin: 20px 0; display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center;";
+  
+  filterAndSearchContainer.innerHTML = `
+    <div class="filter-group">
+      <button class="filter-btn primary-button" data-filter="all" style="padding: 8px 16px; font-size:12px; margin-right:5px;">Tất cả</button>
+      <button class="filter-btn primary-button" data-filter="drink" style="padding: 8px 16px; font-size:12px; margin-right:5px; background-color: var(--accent-color);">Đồ uống</button>
+      <button class="filter-btn primary-button" data-filter="space" style="padding: 8px 16px; font-size:12px; background-color: var(--accent-color);">Không gian</button>
+    </div>
+    <div class="search-group">
+      <input type="text" id="searchInput" placeholder="Tìm tên ảnh hoặc không gian..." style="padding: 10px 15px; width: 280px; border-radius: 6px; border: 1px solid var(--border-color); font-family:inherit; outline:none;">
+    </div>
+  `;
+  
+  // Chèn thanh công cụ vào phía trên Thư viện ảnh
+  galleryGrid.parentNode.insertBefore(filterAndSearchContainer, galleryGrid);
+
+  // LOGIC BÀI TẬP 8: Lọc ảnh theo danh mục (Click Button)
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const filterValue = button.dataset.filter;
+      
+      items.forEach(item => {
+        if (filterValue === "all" || item.dataset.category === filterValue) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+      console.log(`Bài 8: Đã lọc thư viện ảnh theo nhóm: ${filterValue}`);
+    });
+  });
+
+  // LOGIC BÀI TẬP 7: Tìm kiếm theo từ khóa theo thời gian thực (keyup)
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.addEventListener("keyup", function () {
+      const keyword = searchInput.value.toLowerCase().trim();
+      
+      items.forEach(item => {
+        const figcaptionText = item.querySelector("
