@@ -50,3 +50,49 @@ if (helloBtn) {
 } else {
     console.error("Không tìm thấy nút bấm trong phần Hero.");
 }
+/* ==========================================================================
+   BÀI TẬP 3: TÍNH NĂNG ẨN/HIỆN NỘI DUNG (TOGGLE CONTENT)
+   (Giữ nguyên 100% HTML & CSS gốc)
+   ========================================================================== */
+
+// 1. Tìm khối nội dung giới thiệu (Khối #story của bạn)
+const aboutContent = document.getElementById("story");
+
+if (aboutContent) {
+  // Đồng bộ ID thành aboutContent cho đúng yêu cầu đề bài bằng JS
+  aboutContent.id = "aboutContent";
+
+  // 2. Tạo nút bấm bằng JS vì HTML không có sẵn nút này
+  const toggleAboutBtn = document.createElement("button");
+  toggleAboutBtn.id = "toggleAboutBtn";
+  toggleAboutBtn.textContent = "Thu gọn nội dung giới thiệu";
+  
+  // Tận dụng class nút bấm màu đỏ (.primary-button) có sẵn trong CSS của bạn
+  toggleAboutBtn.className = "primary-button"; 
+  toggleAboutBtn.style.marginTop = "20px";
+  toggleAboutBtn.style.cursor = "pointer";
+  toggleAboutBtn.style.border = "none"; // Xóa viền mặc định của thẻ button
+
+  // 3. Chèn nút bấm này vào ngay dưới khối nội dung giới thiệu
+  aboutContent.parentNode.insertBefore(toggleAboutBtn, aboutContent.nextSibling);
+
+  // 4. Lắng nghe sự kiện click để ẩn / hiện
+  toggleAboutBtn.addEventListener("click", function () {
+    
+    // Kiểm tra trạng thái hiển thị hiện tại của khối nội dung
+    if (aboutContent.style.display === "none") {
+      // Nếu đang ẩn thì hiện lại (trả về trạng thái mặc định)
+      aboutContent.style.display = "";
+      toggleAboutBtn.textContent = "Thu gọn nội dung giới thiệu";
+      console.log("Bài 3: Đã hiện nội dung giới thiệu");
+    } else {
+      // Nếu đang hiện thì ẩn đi bằng cách gán thẳng style display = none
+      aboutContent.style.display = "none";
+      toggleAboutBtn.textContent = "Xem thêm nội dung giới thiệu";
+      console.log("Bài 3: Đã ẩn nội dung giới thiệu");
+    }
+  });
+
+} else {
+  console.error("Không tìm thấy khối nội dung có id='story' để thực hiện Bài 3.");
+}
