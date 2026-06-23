@@ -3,7 +3,6 @@
    (Giữ nguyên HTML gốc: Dùng querySelector để bắt chính xác thẻ)
    ========================================================================== */
 
-// 1. Đổi tiêu đề và lời chào khi tải trang
 const mainTitle = document.querySelector("#hero #main-title");
 const welcomeText = document.querySelector("#hero .intro");
 
@@ -13,18 +12,18 @@ if (mainTitle && welcomeText) {
     console.log("Bài 1: Đã cập nhật tiêu đề và lời chào thành công!");
 }
 
-// 2. Click nút "Khám phá chủ đề" để nhận thông điệp
+
 const helloBtn = document.querySelector("#hero .primary-button");
 
 if (helloBtn) {
-    // Tạo vùng hiển thị kết quả (helloResult) ngay dưới nút bấm
+
     const helloResult = document.createElement("p");
     helloResult.id = "helloResult";
     helloResult.style.cssText = "margin-top: 15px; font-weight: bold; color: var(--accent-color); min-height: 24px;";
     helloBtn.parentNode.insertBefore(helloResult, helloBtn.nextSibling);
 
     helloBtn.addEventListener("click", function (event) {
-        event.preventDefault(); // Ngăn hành vi cuộn trang mặc định của thẻ <a>
+        event.preventDefault(); 
         helloResult.textContent = "☕ Chúc bạn một ngày ngập tràn ý tưởng mới và chạy deadline thật mượt mà tại Ngoại Hạng Cafe!";
         console.log("Bài 2: Người dùng đã click nhận thông điệp!");
     });
@@ -38,9 +37,8 @@ if (helloBtn) {
 const aboutContent = document.getElementById("story");
 
 if (aboutContent) {
-    aboutContent.id = "aboutContent"; // Đồng bộ ID chuẩn theo yêu cầu đề bài
+    aboutContent.id = "aboutContent";
 
-    // Tự tạo nút bấm Toggle
     const toggleAboutBtn = document.createElement("button");
     toggleAboutBtn.id = "toggleAboutBtn";
     toggleAboutBtn.textContent = "Thu gọn nội dung giới thiệu";
@@ -71,8 +69,7 @@ const header = document.querySelector(".site-header");
 
 if (mainMenu && header) {
     mainMenu.id = "mainMenu";
-
-    // Tạo nút bấm Hamburger
+   
     const menuToggle = document.createElement("button");
     menuToggle.id = "menuToggle";
     menuToggle.innerHTML = "☰ Menu";
@@ -80,7 +77,6 @@ if (mainMenu && header) {
 
     header.insertBefore(menuToggle, mainMenu);
 
-    // Chèn CSS Responsive trực tiếp vào trang bằng JS
     const styleTag = document.createElement("style");
     styleTag.innerHTML = `
         @media (max-width: 768px) {
@@ -96,13 +92,11 @@ if (mainMenu && header) {
     `;
     document.head.appendChild(styleTag);
 
-    // Sự kiện click đóng mở Menu
     menuToggle.addEventListener("click", function () {
         mainMenu.classList.toggle("active");
         menuToggle.innerHTML = mainMenu.classList.contains("active") ? "✕ Đóng" : "☰ Menu";
     });
 
-    // Tự động đóng menu khi click chọn 1 mục điều hướng bất kỳ
     mainMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", function () {
             mainMenu.classList.remove("active");
@@ -185,7 +179,6 @@ if (galleryGrid) {
     `;
     galleryGrid.parentNode.insertBefore(filterAndSearchContainer, galleryGrid);
 
-    // Xử lý bộ lọc phân loại ảnh (Bài 8)
     document.querySelectorAll(".filter-btn").forEach(button => {
         button.addEventListener("click", function () {
             const filterValue = button.dataset.filter;
@@ -195,7 +188,6 @@ if (galleryGrid) {
         });
     });
 
-    // Xử lý tìm kiếm ảnh thời gian thực (Bài 7)
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("keyup", function () {
@@ -217,11 +209,9 @@ const nameInputRaw = document.getElementById("name");
 const emailInputRaw = document.getElementById("email");
 
 if (contactFormRaw && nameInputRaw && emailInputRaw) {
-    // Ép gán ID động chuẩn theo yêu cầu đề bài
     contactFormRaw.id = "contactForm";
     nameInputRaw.id = "fullName";
     
-    // Tự sinh vùng thông báo kết quả kiểm tra form công khai trên giao diện
     const formMessage = document.createElement("div");
     formMessage.id = "formMessage";
     formMessage.style.cssText = "margin-bottom: 15px; font-weight: bold; font-size: 14px;";
@@ -229,36 +219,30 @@ if (contactFormRaw && nameInputRaw && emailInputRaw) {
     const submitBtn = contactFormRaw.querySelector("button[type='submit']");
     submitBtn.parentNode.insertBefore(formMessage, submitBtn);
 
-    // SỬA LỖI ĐẮT GIÁ: Lắng nghe hành vi submit của form
     contactFormRaw.addEventListener("submit", function (event) {
-        
-        // 🔥 ĐẶT LỆNH NÀY ĐẦU TIÊN: Tước quyền reload trang của trình duyệt, khóa chặt lỗi 405!
+
         event.preventDefault(); 
 
         const nameValue = nameInputRaw.value.trim();
         const emailValue = emailInputRaw.value.trim();
 
-        // 1. Kiểm tra họ tên
         if (nameValue === "") {
             formMessage.textContent = "❌ Vui lòng nhập họ tên của bạn.";
             formMessage.style.color = "#dc2626";
             nameInputRaw.focus();
-            return; // Ngắt hàm, giữ giao diện an toàn
+            return;
         }
 
-        // 2. Kiểm tra email hợp lệ
         if (emailValue === "" || !emailValue.includes("@") || !emailValue.includes(".")) {
             formMessage.textContent = "❌ Vui lòng nhập địa chỉ email hợp lệ (Có dấu @ và dấu chấm).";
             formMessage.style.color = "#dc2626";
             emailInputRaw.focus();
-            return; // Ngắt hàm, giữ giao diện an toàn
+            return;
         }
 
-        // 3. Toàn bộ dữ liệu nhập ĐỦ và ĐÚNG $\rightarrow$ Xử lý thành công tại chỗ, không đổi trang
         formMessage.textContent = "✔️ Gửi thông điệp thành công! Cảm ơn bạn đã chia sẻ cùng Ngoại Hạng Cafe.";
         formMessage.style.color = "#16a34a";
-        
-        // Làm sạch form để người dùng tiếp tục trải nghiệm
+
         contactFormRaw.reset();
         console.log("Bài 9: Đã kiểm tra dữ liệu và chặn thành công lỗi 405!");
     });
