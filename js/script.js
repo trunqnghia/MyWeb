@@ -1,22 +1,13 @@
-// Cấu hình thông tin website "Ngoại Hạng Cafe"
-const webInfo = {
-    tenWebsite: "Ngoại Hạng Cafe",
-    chuDe: "Săn tìm góc quán trốn deadline & Chữa lành",
-    soLuongAnh: 4, // Dựa trên số lượng trong portfolio-grid của bạn
-    trangThaiHoanThanh: true
-};
+// Lấy các phần tử từ HTML thông qua ID
+const mainTitle = document.getElementById("main-title");
+const welcomeText = document.getElementById("welcome-text");
 
-// Hàm hiển thị thông tin ra Console
-function logWebsiteInfo() {
-    console.log("--- THÔNG TIN WEBSITE: " + webInfo.tenWebsite.toUpperCase() + " ---");
-    console.log("Chủ đề chính: " + webInfo.chuDe);
-    console.log("Số lượng hình ảnh trong thư viện: " + webInfo.soLuongAnh);
-    console.log("Trạng thái website: " + (webInfo.trangThaiHoanThanh ? "Đã hoàn thành và đang hoạt động" : "Đang phát triển"));
+// Kiểm tra xem các phần tử có tồn tại không trước khi thay đổi
+if (mainTitle && welcomeText) {
+    // Thay đổi nội dung bằng textContent
+    mainTitle.textContent = "Ngoại Hạng Cafe - Nơi Sáng Tạo Bắt Đầu";
+    welcomeText.textContent = "Chào mừng bạn! Nội dung này đã được cập nhật bởi JavaScript.";
     
-    // Kiểm tra xem tiêu đề có khớp không
-    const mainTitle = document.getElementById("main-title").innerText;
-    console.log("Tiêu đề chính trên trang: " + mainTitle);
+    // Thêm một chút style nhẹ bằng JS để thấy sự thay đổi
+    mainTitle.style.color = "#4a3728"; // Màu nâu Espresso
 }
-
-// Chạy hàm
-logWebsiteInfo();
