@@ -96,3 +96,93 @@ if (aboutContent) {
 } else {
   console.error("Không tìm thấy khối nội dung có id='story' để thực hiện Bài 3.");
 }
+/* ==========================================================================
+   BÀI TẬP 4: TỰ ĐỘNG KÍCH HOẠT RESPONSIVE MENU (TOGGLE MENU)
+   (Giữ nguyên 100% HTML & CSS gốc)
+   ========================================================================== */
+
+// 1. Tìm thanh điều hướng có sẵn trong HTML gốc của bạn
+const mainMenu = document.querySelector(".main-nav");
+const header = document.querySelector(".site-header");
+
+if (mainMenu && header) {
+  // Đồng bộ ID thành mainMenu cho đúng yêu cầu đề bài bằng JS
+  mainMenu.id = "mainMenu";
+
+  // 2. Tạo nút bấm Menu Hamburger (☰ Menu) bằng JS vì HTML không có sẵn
+  const menuToggle = document.createElement("button");
+  menuToggle.id = "menuToggle";
+  menuToggle.innerHTML = "☰ Menu";
+  
+  // Định dạng phong cách cho nút Menu trông thật "chữa lành" và đồng bộ với Header
+  menuToggle.style.padding = "8px 15px";
+  menuToggle.style.backgroundColor = "var(--primary-color)";
+  menuToggle.style.color = "#FFFFFF";
+  menuToggle.style.border = "none";
+  menuToggle.style.borderRadius = "4px";
+  menuToggle.style.fontWeight = "bold";
+  menuToggle.style.cursor = "pointer";
+  menuToggle.style.fontSize = "14px";
+  menuToggle.style.display = "none"; // Mặc định ẩn trên máy tính, chỉ hiện trên di động
+
+  // Chèn nút bấm Menu vào trong Header, ngay trước thanh Menu chính
+  header.insertBefore(menuToggle, mainMenu);
+
+  // 3. Tự động chèn các thuộc tính CSS Responsive trực tiếp bằng JS
+  // Đoạn code này giả lập lại việc viết Media Queries trong CSS giúp ẩn/hiện menu mượt mà
+  const styleTag = document.createElement("style");
+  styleTag.innerHTML = `
+    @media (max-width: 768px) {
+      #menuToggle {
+        display: block !important; /* Hiện nút bấm trên điện thoại */
+      }
+      #mainMenu {
+        display: none; /* Mặc định ẩn menu trên điện thoại */
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color: var(--section-bg);
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-bottom: 2px solid var(--primary-color);
+        z-index: 1000;
+      }
+      #mainMenu.active {
+        display: flex !important; /* Khớp với class .active để mở menu */
+      }
+      #mainMenu a {
+        margin: 10px 0 !important;
+        padding-left: 20px;
+      }
+    }
+  `;
+  document.head.appendChild(styleTag);
+
+  // 4. Lắng nghe sự kiện Click vào nút menuToggle
+  menuToggle.addEventListener("click", function () {
+    // Thêm/Xóa class "active" cho thanh menu
+    mainMenu.classList.toggle("active");
+
+    // PHẦN MỞ RỘNG: Đổi chữ nút từ "☰ Menu" sang "✕ Đóng"
+    if (mainMenu.classList.contains("active")) {
+      menuToggle.innerHTML = "✕ Đóng";
+    } else {
+      menuToggle.innerHTML = "☰ Menu";
+    }
+    console.log("Bài 4: Đã đóng/mở menu");
+  });
+
+  // PHẦN MỞ RỘNG NÂNG CAO: Khi bấm vào một liên kết bất kỳ, tự động đóng menu luôn
+  const menuLinks = mainMenu.querySelectorAll("a");
+  menuLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      mainMenu.classList.remove("active"); // Gỡ bỏ class active để ẩn menu đi
+      menuToggle.innerHTML = "☰ Menu"; // Trả lại chữ cho nút bấm
+    });
+  });
+
+} else {
+  console.error("Không tìm thấy thanh điều hướng để thực hiện Bài 4.");
+}
